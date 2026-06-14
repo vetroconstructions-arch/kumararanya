@@ -15,9 +15,11 @@ export default function RootLayout({ children }) {
           <div className="logo">ARANYA</div>
           <div className="nav-links">
               <Link href="/">Overview</Link>
-              <a href="/pune-real-estate-market">2026 Market Report</a>
-              <a href="#layout">Masterplan</a>
-              <a href="#contact" className="btn-small">Enquire Now</a>
+              <Link href="/insights/pune-real-estate-market">Market Data 2026</Link>
+              <Link href="/insights/bungalow-aspirations">The Bungalow Life</Link>
+              <Link href="/insights/maharera-guidelines-faq">Buying FAQs</Link>
+              <Link href="/#layout">Masterplan</Link>
+              <Link href="/#contact" className="btn-small">Enquire Now</Link>
           </div>
         </nav>
         {children}

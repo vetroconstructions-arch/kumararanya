@@ -5,6 +5,8 @@ export const metadata = {
   description: 'Grand Gated NA Bungalow Plot Community in Hinjewadi, Pune. 2300-7500 SQFT RERA Approved Plots from ₹1.47 Cr.',
 }
 
+import Link from 'next/link';
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -12,7 +14,7 @@ export default function RootLayout({ children }) {
         <nav id="navbar" className="navbar">
           <div className="logo">ARANYA</div>
           <div className="nav-links">
-              <a href="/">Overview</a>
+              <Link href="/">Overview</Link>
               <a href="/pune-real-estate-market">2026 Market Report</a>
               <a href="#layout">Masterplan</a>
               <a href="#contact" className="btn-small">Enquire Now</a>

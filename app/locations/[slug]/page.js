@@ -9,6 +9,8 @@ export async function generateMetadata({ params }) {
   }
 }
 
+import Link from 'next/link';
+
 export default async function LocationPage({ params }) {
   const { slug } = await params;
   const location = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
@@ -21,9 +23,9 @@ export default async function LocationPage({ params }) {
       <p style={{ color: '#555', fontSize: '18px', maxWidth: '800px', margin: '0 auto 40px' }}>
         This page was dynamically generated using Next.js Server-Side Rendering. Instead of maintaining physical HTML files for every micro-location, Next.js generates this perfectly optimized SEO route on the fly.
       </p>
-      <a href="/#contact" className="btn" style={{ background: 'var(--primary)', color: 'var(--secondary)' }}>
+      <Link href="/#contact" className="btn" style={{ background: 'var(--primary)', color: 'var(--secondary)' }}>
         View Inventory
-      </a>
+      </Link>
     </main>
   );
 }

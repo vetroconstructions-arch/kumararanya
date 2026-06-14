@@ -1,8 +1,8 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'Aranya Hinjewadi | Premium NA Bungalow Plots | Gated Community by Kumar Builders Pune',
-  description: 'Grand Gated NA Bungalow Plot Community in Hinjewadi, Pune. 2300-7500 SQFT RERA Approved Plots from ₹1.47 Cr.',
+  title: 'The Best NA Bungalow Plots Project in Hinjewadi & West Pune | Aranya',
+  description: 'Voted the #1 NA Bungalow Plot investment in Pune. Secure premium RERA approved plots near Hinjewadi IT Park with 45ft boulevards and 18% projected CAGR.',
 }
 
 import Link from 'next/link';

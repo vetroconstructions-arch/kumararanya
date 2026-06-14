@@ -5,6 +5,10 @@ import Link from 'next/link';
 export default function Home() {
   const [initialInvestment, setInitialInvestment] = useState(15000000); // 1.5 Cr
   const [years, setYears] = useState(5);
+  
+  // Enquiry Form State
+  const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
+  const [formStatus, setFormStatus] = useState('idle'); // idle, loading, success, error
   const cagr = 0.18; // 18% CAGR
 
   const projectedValue = initialInvestment * Math.pow((1 + cagr), years);
@@ -16,10 +20,28 @@ export default function Home() {
 
   const whatsappMessage = "Hello PropSmart Realty, I am highly interested in the Aranya NA Bungalow Plots project in Pune. Please share the brochure and pricing details.";
   const whatsappUrl = `https://wa.me/917744009295?text=${encodeURIComponent(whatsappMessage)}`;
-  
-  const emailSubject = "Enquiry - Aranya NA Bungalow Plots";
-  const emailBody = "Hello PropSmart Realty,\n\nI am interested in the Aranya NA Bungalow Plots project in West Pune. Please contact me with more details.\n\nThank you.";
-  const emailUrl = `mailto:propsmartrealty@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+  const handleEnquirySubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus('loading');
+    
+    try {
+      const res = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, projectInterest: 'Aranya NA Bungalow Plots' })
+      });
+      
+      if (res.ok) {
+        setFormStatus('success');
+        setFormData({ name: '', phone: '', email: '' });
+      } else {
+        setFormStatus('error');
+      }
+    } catch(err) {
+      setFormStatus('error');
+    }
+  };
 
   // Superlative Schema Injection
   const faqSchema = {
@@ -146,31 +168,50 @@ export default function Home() {
 
       {/* Direct Contact Hub */}
       <section id="contact" style={{ padding: '100px 20px', background: '#0a192f' }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+        <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontSize: '42px', color: 'white', marginBottom: '20px' }}>Secure Your Legacy Today</h2>
-          <p style={{ fontSize: '20px', color: '#aaa', marginBottom: '60px' }}>
+          <p style={{ fontSize: '18px', color: '#aaa', marginBottom: '40px' }}>
             Bypass third-party brokers. Connect directly with PropSmart Realty for exact plot availability, exclusive pricing, and RERA documentation.
           </p>
+
+          <form onSubmit={handleEnquirySubmit} style={{ background: 'white', padding: '40px', borderRadius: '12px', textAlign: 'left', marginBottom: '40px' }}>
+            <h3 style={{ fontSize: '24px', color: 'var(--primary)', marginBottom: '20px', textAlign: 'center' }}>Request a Call Back</h3>
+            
+            <div style={{ marginBottom: '20px' }}>
+              <label style={{ display: 'block', marginBottom: '8px', color: '#555', fontWeight: 'bold' }}>Full Name *</label>
+              <input required type="text" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} style={{ width: '100%', padding: '15px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '16px' }} placeholder="John Doe" />
+            </div>
+
+            <div style={{ marginBottom: '20px' }}>
+              <label style={{ display: 'block', marginBottom: '8px', color: '#555', fontWeight: 'bold' }}>Phone Number *</label>
+              <input required type="tel" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} style={{ width: '100%', padding: '15px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '16px' }} placeholder="+91 98765 43210" />
+            </div>
+
+            <div style={{ marginBottom: '30px' }}>
+              <label style={{ display: 'block', marginBottom: '8px', color: '#555', fontWeight: 'bold' }}>Email Address</label>
+              <input type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} style={{ width: '100%', padding: '15px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '16px' }} placeholder="john@example.com" />
+            </div>
+
+            <button disabled={formStatus === 'loading' || formStatus === 'success'} type="submit" style={{ width: '100%', padding: '18px', background: 'var(--primary)', color: 'var(--secondary)', fontSize: '18px', fontWeight: 'bold', border: 'none', borderRadius: '8px', cursor: formStatus === 'loading' ? 'not-allowed' : 'pointer', transition: 'all 0.3s' }}>
+              {formStatus === 'idle' && 'Submit Enquiry'}
+              {formStatus === 'loading' && 'Sending...'}
+              {formStatus === 'success' && '✓ Enquiry Sent Successfully'}
+              {formStatus === 'error' && 'Error. Try Again.'}
+            </button>
+            
+            {formStatus === 'error' && <p style={{ color: 'red', marginTop: '15px', textAlign: 'center' }}>Failed to send. Please ensure SMTP credentials are set, or use WhatsApp below.</p>}
+          </form>
 
           <div style={{ display: 'flex', gap: '30px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a 
               href={whatsappUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              style={{ padding: '20px 40px', background: '#25D366', color: 'white', textDecoration: 'none', fontSize: '20px', fontWeight: 'bold', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '10px', transition: 'transform 0.3s' }}
-              onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+              style={{ width: '100%', padding: '20px 40px', background: '#25D366', color: 'white', textDecoration: 'none', fontSize: '20px', fontWeight: 'bold', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', transition: 'transform 0.3s' }}
+              onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
               onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
             >
-              💬 WhatsApp Enquiry
-            </a>
-            
-            <a 
-              href={emailUrl}
-              style={{ padding: '20px 40px', background: 'white', color: 'var(--primary)', textDecoration: 'none', fontSize: '20px', fontWeight: 'bold', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '10px', transition: 'transform 0.3s' }}
-              onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-              onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
-            >
-              ✉️ Email PropSmart Realty
+              💬 Instant WhatsApp Enquiry
             </a>
           </div>
           

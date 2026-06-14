@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /*?*
+Disallow: /_next/
+Disallow: /cgi-bin/
+
+# Block aggressive/spam bots
+User-agent: AhrefsBot
+Disallow: /
+User-agent: SemrushBot
+Disallow: /
+User-agent: MJ12bot
+Disallow: /
+User-agent: DotBot
+Disallow: /
+
+Sitemap: https://kumarbuildersaranya.com/sitemap.xml

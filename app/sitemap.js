@@ -1,5 +1,6 @@
 import { locationsData } from './locationsData';
 import { insightsData } from './insightsData';
+import { nriData } from './nriData';
 
 export default function sitemap() {
   const baseUrl = 'https://www.kumararanya.in';
@@ -30,5 +31,13 @@ export default function sitemap() {
     priority: 0.9,
   }));
 
-  return [...routes, ...insightRoutes, ...locationRoutes];
+  // Dynamic NRI routes
+  const nriRoutes = Object.keys(nriData).map((city) => ({
+    url: `${baseUrl}/nri/${city}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.9,
+  }));
+
+  return [...routes, ...insightRoutes, ...locationRoutes, ...nriRoutes];
 }

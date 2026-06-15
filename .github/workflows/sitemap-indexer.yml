@@ -1,0 +1,19 @@
+name: Automated Sitemap Indexing (SEO)
+
+on:
+  schedule:
+    # Run every 48 hours (00:00 every 2 days)
+    - cron: '0 0 */2 * *'
+  workflow_dispatch: # Allow manual trigger from GitHub UI
+
+jobs:
+  ping-search-engines:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Google
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" "https://www.google.com/ping?sitemap=https://www.kumararanya.in/sitemap.xml" | grep -q "200\|302" && echo "Successfully pinged Google." || echo "Failed to ping Google."
+
+      - name: Ping Bing
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" "https://www.bing.com/ping?sitemap=https://www.kumararanya.in/sitemap.xml" | grep -q "200\|302" && echo "Successfully pinged Bing." || echo "Failed to ping Bing."

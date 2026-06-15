@@ -29,6 +29,9 @@ export const metadata = {
   alternates: {
     canonical: '/',
   },
+  verification: {
+    google: 'saaWp4gP9gzn6up9lsQTdPuc_TLOx89Q1XVULt4_Ngg',
+  },
 }
 
 import Link from 'next/link';

@@ -1,17 +1,42 @@
 import './globals.css'
 
 export const metadata = {
+  metadataBase: new URL('https://www.kumararanya.in'),
   title: 'The Best NA Bungalow Plots Project in Hinjewadi & West Pune | Aranya',
   description: 'Voted the #1 NA Bungalow Plot investment in Pune. Secure premium RERA approved plots near Hinjewadi IT Park with 45ft boulevards and 18% projected CAGR.',
+  openGraph: {
+    title: 'The Best NA Bungalow Plots in West Pune | Aranya',
+    description: 'Voted the #1 NA Bungalow Plot investment in Pune. Secure premium RERA approved plots near Hinjewadi IT Park.',
+    url: 'https://www.kumararanya.in',
+    siteName: 'Aranya by Kumar Builders',
+    images: [
+      {
+        url: '/assets/images/scenic_villa.png',
+        width: 1200,
+        height: 630,
+        alt: 'Aranya Ultra-Luxury Lakefront Villa Plot',
+      },
+    ],
+    locale: 'en_IN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Aranya NA Bungalow Plots | West Pune',
+    description: 'Secure premium RERA approved plots near Hinjewadi IT Park.',
+    images: ['/assets/images/scenic_villa.png'],
+  },
 }
 
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
+import SchemaMarkup from '../components/SchemaMarkup';
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <SchemaMarkup />
         <Navbar />
         {children}
         <footer style={{ background: '#0a192f', color: 'white', padding: '60px 20px 20px', borderTop: '1px solid #1a2a42' }}>

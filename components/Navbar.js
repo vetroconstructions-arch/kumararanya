@@ -46,25 +46,59 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="desktop-menu" style={{ display: 'flex', gap: '35px', alignItems: 'center' }}>
-          <Link href="/" style={{ color: 'white', textDecoration: 'none', fontSize: '13px', fontWeight: '600', letterSpacing: '1.5px', transition: 'color 0.3s' }} className="nav-link">HOME</Link>
-          <Link href="/#layout" style={{ color: 'white', textDecoration: 'none', fontSize: '13px', fontWeight: '600', letterSpacing: '1.5px', transition: 'color 0.3s' }} className="nav-link">PLOTS</Link>
-          <Link href="/#amenities" style={{ color: 'white', textDecoration: 'none', fontSize: '13px', fontWeight: '600', letterSpacing: '1.5px', transition: 'color 0.3s' }} className="nav-link">AMENITIES</Link>
+        <div className="desktop-menu" style={{ display: 'flex', gap: '25px', alignItems: 'center' }}>
           
-          <Link href="/locations/hinjewadi-phase-1" style={{ color: 'white', textDecoration: 'none', fontSize: '13px', fontWeight: '600', letterSpacing: '1.5px', transition: 'color 0.3s' }} className="nav-link">LOCATION</Link>
+          <div className="dropdown" style={{ position: 'relative' }}>
+            <span style={{ color: 'white', cursor: 'pointer', fontSize: '12px', fontWeight: '600', letterSpacing: '1.5px' }} className="nav-link">PROJECT ▾</span>
+            <div className="dropdown-content">
+              <Link href="/">The Vision</Link>
+              <Link href="/">The Developers</Link>
+              <Link href="/">Gallery</Link>
+            </div>
+          </div>
 
-          <Link href="/#contact" style={{ color: 'white', textDecoration: 'none', fontSize: '13px', fontWeight: '600', letterSpacing: '1.5px', transition: 'color 0.3s' }} className="nav-link">CONTACT</Link>
+          <div className="dropdown" style={{ position: 'relative' }}>
+            <span style={{ color: 'white', cursor: 'pointer', fontSize: '12px', fontWeight: '600', letterSpacing: '1.5px' }} className="nav-link">MASTERPLAN ▾</span>
+            <div className="dropdown-content">
+              <Link href="/#plots">2,000 sq.ft Compact Villas</Link>
+              <Link href="/#plots">3,500 sq.ft Premium Estates</Link>
+              <Link href="/#plots">5,000+ sq.ft Signature Estates</Link>
+              <Link href="/#layout">Interactive SVG Layout</Link>
+            </div>
+          </div>
+
+          <div className="dropdown" style={{ position: 'relative' }}>
+            <span style={{ color: 'white', cursor: 'pointer', fontSize: '12px', fontWeight: '600', letterSpacing: '1.5px' }} className="nav-link">INFRASTRUCTURE ▾</span>
+            <div className="dropdown-content">
+              <Link href="/#amenities">2.5 Acre Clubhouse</Link>
+              <Link href="/#amenities">Miyawaki Forest & Biodiversity</Link>
+              <Link href="/#amenities">45-ft Boulevards & Solar</Link>
+              <Link href="/#amenities">3-Tier Security System</Link>
+            </div>
+          </div>
+
+          <Link href="/locations/hinjewadi-phase-1" style={{ color: 'white', textDecoration: 'none', fontSize: '12px', fontWeight: '600', letterSpacing: '1.5px', transition: 'color 0.3s' }} className="nav-link">LOCATION</Link>
+
+          <div className="dropdown" style={{ position: 'relative' }}>
+            <span style={{ color: 'white', cursor: 'pointer', fontSize: '12px', fontWeight: '600', letterSpacing: '1.5px' }} className="nav-link">RESOURCES ▾</span>
+            <div className="dropdown-content">
+              <Link href="/insights/maharera-guidelines-faq">Buying FAQs & RERA</Link>
+              <Link href="/insights/pune-real-estate-market">Pune Market Data 2026</Link>
+              <Link href="/nri/dubai">NRI Investment Portal</Link>
+            </div>
+          </div>
 
           <Link href="/#layout" style={{ 
-            padding: '12px 28px', 
+            padding: '10px 24px', 
             background: 'var(--secondary)', 
             color: 'var(--primary)', 
             textDecoration: 'none', 
-            fontSize: '13px', 
+            fontSize: '12px', 
             fontWeight: 'bold',
             letterSpacing: '1.5px', 
             borderRadius: '4px',
-            transition: 'all 0.3s'
+            transition: 'all 0.3s',
+            marginLeft: '10px'
           }} className="btn-enquire">
             BOOK NOW
           </Link>
@@ -99,13 +133,22 @@ export default function Navbar() {
         opacity: isMobileMenuOpen ? 1 : 0,
         transition: 'opacity 0.4s ease'
       }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '30px', textAlign: 'center' }}>
-          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '24px', fontWeight: 'bold', letterSpacing: '2px' }}>HOME</Link>
-          <Link href="/#layout" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '24px', fontWeight: 'bold', letterSpacing: '2px' }}>PLOTS</Link>
-          <Link href="/#amenities" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '24px', fontWeight: 'bold', letterSpacing: '2px' }}>AMENITIES</Link>
-          <Link href="/locations/hinjewadi-phase-1" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '24px', fontWeight: 'bold', letterSpacing: '2px' }}>LOCATION</Link>
-          <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '24px', fontWeight: 'bold', letterSpacing: '2px', marginTop: '10px' }}>CONTACT</Link>
-          <Link href="/#layout" onClick={() => setIsMobileMenuOpen(false)} style={{ marginTop: '20px', padding: '15px 40px', background: 'var(--secondary)', color: 'var(--primary)', textDecoration: 'none', fontSize: '18px', fontWeight: 'bold', borderRadius: '4px' }}>BOOK NOW</Link>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', textAlign: 'center', width: '100%', maxWidth: '300px' }}>
+          
+          <div style={{ color: 'var(--secondary)', fontSize: '12px', letterSpacing: '2px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' }}>PROJECT</div>
+          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '16px' }}>The Vision</Link>
+          
+          <div style={{ color: 'var(--secondary)', fontSize: '12px', letterSpacing: '2px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px', marginTop: '10px' }}>MASTERPLAN</div>
+          <Link href="/#layout" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '16px' }}>Interactive Layout</Link>
+          <Link href="/#plots" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '16px' }}>Plot Specifications</Link>
+          
+          <div style={{ color: 'var(--secondary)', fontSize: '12px', letterSpacing: '2px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px', marginTop: '10px' }}>INFRASTRUCTURE</div>
+          <Link href="/#amenities" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '16px' }}>Clubhouse & Amenities</Link>
+          
+          <div style={{ color: 'var(--secondary)', fontSize: '12px', letterSpacing: '2px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px', marginTop: '10px' }}>LOCATION</div>
+          <Link href="/locations/hinjewadi-phase-1" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '16px' }}>Hinjewadi IT Park</Link>
+
+          <Link href="/#layout" onClick={() => setIsMobileMenuOpen(false)} style={{ marginTop: '20px', padding: '15px 40px', background: 'var(--secondary)', color: 'var(--primary)', textDecoration: 'none', fontSize: '16px', fontWeight: 'bold', borderRadius: '4px' }}>BOOK NOW</Link>
         </div>
       </div>
     </>

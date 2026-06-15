@@ -1262,3 +1262,61 @@ input[type="range"] {
     background: var(--secondary);
     color: var(--primary);
 }
+
+/* Dropdown Menu CSS */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(10, 25, 47, 0.98);
+  backdrop-filter: blur(10px);
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+  margin-top: 15px;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 15px 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255,255,255,0.05);
+  color: var(--secondary);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Nav Hover Effects */
+.nav-link:hover {
+  color: var(--secondary) !important;
+}
+
+.btn-enquire:hover {
+  background: var(--secondary) !important;
+  color: var(--primary) !important;
+}
+
+/* Mobile specific styling */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none !important;
+  }
+}
+@media (min-width: 769px) {
+  .mobile-hamburger {
+    display: none !important;
+  }
+}

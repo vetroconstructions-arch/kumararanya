@@ -61,7 +61,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "name": "Aranya NA Bungalow Plots by Kumar Builders",
-    "image": "https://kumararanya.in/assets/images/hero.jpg",
+    "image": "https://kumararanya.in/assets/images/scenic_villa.png",
     "telephone": "+917744009295",
     "email": "propsmartrealty@gmail.com",
     "address": {
@@ -89,7 +89,7 @@ export default function Home() {
       {/* Hero Section */}
       <header style={{ 
         height: '90vh', 
-        background: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('/assets/images/hero.jpg')`, 
+        background: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('/assets/images/scenic_villa.png')`, 
         backgroundSize: 'cover', 
         backgroundPosition: 'center', 
         display: 'flex', 

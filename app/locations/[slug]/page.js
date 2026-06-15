@@ -27,7 +27,7 @@ export default async function LocationPage({ params }) {
   }
 
   // Generate the WhatsApp URL dynamically for this location
-  const whatsappMessage = `Hello PropSmart Realty, I am interested in Aranya NA Bungalow Plots near ${data.name}. Please share pricing.`;
+  const whatsappMessage = `Hello, I am interested in Aranya NA Bungalow Plots near ${data.name}. Please share pricing.`;
   const whatsappUrl = `https://wa.me/917744009295?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (

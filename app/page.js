@@ -18,7 +18,7 @@ export default function Home() {
     return `₹ ${(val / 10000000).toFixed(2)} Cr`;
   };
 
-  const whatsappMessage = "Hello PropSmart Realty, I am highly interested in the Aranya NA Bungalow Plots project in Pune. Please share the brochure and pricing details.";
+  const whatsappMessage = "Hello, I am highly interested in the Aranya NA Bungalow Plots project in Pune. Please share the brochure and pricing details.";
   const whatsappUrl = `https://wa.me/917744009295?text=${encodeURIComponent(whatsappMessage)}`;
 
   const handleEnquirySubmit = async (e) => {
@@ -171,7 +171,7 @@ export default function Home() {
         <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontSize: '42px', color: 'white', marginBottom: '20px' }}>Secure Your Legacy Today</h2>
           <p style={{ fontSize: '18px', color: '#aaa', marginBottom: '40px' }}>
-            Bypass third-party brokers. Connect directly with PropSmart Realty for exact plot availability, exclusive pricing, and RERA documentation.
+            Bypass third-party brokers. Connect directly with the Aranya Sales Team for exact plot availability, exclusive pricing, and RERA documentation.
           </p>
 
           <form onSubmit={handleEnquirySubmit} style={{ background: 'white', padding: '40px', borderRadius: '12px', textAlign: 'left', marginBottom: '40px' }}>

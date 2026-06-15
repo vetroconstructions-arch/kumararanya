@@ -33,7 +33,7 @@ export async function POST(req) {
         Email: ${email || 'Not Provided'}
         Project Interest: ${projectInterest || 'Aranya NA Bungalow Plots'}
         
-        This lead was securely generated via the PropSmart Realty First-Party Automation Engine.
+        This lead was securely generated via the Aranya First-Party Automation Engine.
       `,
     };
 

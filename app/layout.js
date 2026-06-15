@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
               </div>
             </div>
             <div style={{ textAlign: 'center', borderTop: '1px solid #1a2a42', paddingTop: '20px' }}>
-              <p style={{ fontSize: '12px', opacity: 0.4 }}>&copy; 2026 Kumar Builders. All Rights Reserved. | Aranya NA Bungalow Plots | Marketing by PropSmart Realty</p>
+              <p style={{ fontSize: '12px', opacity: 0.4 }}>&copy; 2026 Kumar Builders. All Rights Reserved. | Aranya NA Bungalow Plots</p>
             </div>
           </div>
         </footer>

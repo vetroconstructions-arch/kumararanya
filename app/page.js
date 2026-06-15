@@ -5,7 +5,7 @@ import MasterplanInteractive from '../components/MasterplanInteractive';
 import ExpansiveData from '../components/ExpansiveData';
 
 export default function Home() {
-  const [initialInvestment, setInitialInvestment] = useState(15000000); // 1.5 Cr
+  const [initialInvestment, setInitialInvestment] = useState(14900000); // 1.49 Cr
   const [years, setYears] = useState(5);
   
   // Enquiry Form State
@@ -69,7 +69,7 @@ export default function Home() {
       "name": "Which is the best NA Bungalow Plot project in Pune?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Aranya by Kumar Builders is widely considered the best NA Bungalow Plot project in West Pune. Located near Hinjewadi IT Park, it offers 100% clear title ownership, 45ft wide boulevards, lakefront plots, and projected historical returns of 18-22% CAGR."
+        "text": "Aranya by Kumar Builders is widely considered the best NA Bungalow Plot project in West Pune. Located near Hinjewadi IT Park in Marunji, it is a 25+ Acre exclusive township limited to exactly 180 plots. It offers 100% clear title ownership and projected historical returns of 18-22% CAGR."
       }
     }]
   };
@@ -124,7 +124,7 @@ export default function Home() {
             The Best NA Bungalow Plots in <span style={{ color: 'var(--secondary)' }}>West Pune</span>
           </h1>
           <p style={{ fontSize: '24px', fontWeight: '300', opacity: 0.9, marginBottom: '40px', maxWidth: '800px', margin: '0 auto 40px' }}>
-            Secure your generational legacy with 2300 - 7500 SQFT premium plots near Hinjewadi Phase 3 Extension.
+            Secure your generational legacy with 2240 - 7600 SQFT premium plots in an exclusive 25-Acre Township in Marunji, Hinjewadi.
           </p>
           <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="#roi-calculator" style={{ padding: '18px 40px', background: 'var(--primary)', color: 'var(--secondary)', textDecoration: 'none', fontSize: '18px', fontWeight: 'bold', border: '1px solid var(--secondary)', transition: 'all 0.3s' }}>

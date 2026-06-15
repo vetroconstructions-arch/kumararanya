@@ -60,9 +60,9 @@ export default function Navbar() {
           <div className="dropdown" style={{ position: 'relative' }}>
             <span style={{ color: 'white', cursor: 'pointer', fontSize: '12px', fontWeight: '600', letterSpacing: '1.5px' }} className="nav-link">MASTERPLAN ▾</span>
             <div className="dropdown-content">
-              <Link href="/#plots">2,000 sq.ft Compact Villas</Link>
-              <Link href="/#plots">3,500 sq.ft Premium Estates</Link>
-              <Link href="/#plots">5,000+ sq.ft Signature Estates</Link>
+              <Link href="/#plots">2,240 sq.ft Compact Villas</Link>
+              <Link href="/#plots">5,000 sq.ft Premium Estates</Link>
+              <Link href="/#plots">7,600 sq.ft Signature Estates</Link>
               <Link href="/#layout">Interactive SVG Layout</Link>
             </div>
           </div>

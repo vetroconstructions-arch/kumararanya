@@ -17,6 +17,9 @@ export function generateMetadata({ params }) {
   return {
     title: `${data.title} | Aranya PMRDA NA Plots`,
     description: data.hook,
+    alternates: {
+      canonical: `https://www.kumararanya.in/search/${params.keyword}`
+    }
   }
 }
 

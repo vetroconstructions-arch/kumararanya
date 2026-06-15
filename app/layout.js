@@ -26,6 +26,9 @@ export const metadata = {
     description: 'Secure premium PMRDA NA Sanctioned plots near Hinjewadi IT Park.',
     images: ['/assets/images/scenic_villa.png'],
   },
+  alternates: {
+    canonical: '/',
+  },
 }
 
 import Link from 'next/link';

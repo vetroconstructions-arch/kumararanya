@@ -17,3 +17,11 @@ jobs:
       - name: Ping Bing
         run: |
           curl -s -o /dev/null -w "%{http_code}" "https://www.bing.com/ping?sitemap=https://www.kumararanya.in/sitemap.xml" | grep -q "200\|302" && echo "Successfully pinged Bing." || echo "Failed to ping Bing."
+
+      - name: Ping Yandex (Russia / Eastern Europe)
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" "https://webmaster.yandex.ru/ping?sitemap=https://www.kumararanya.in/sitemap.xml" | grep -q "200\|302" && echo "Successfully pinged Yandex." || echo "Failed to ping Yandex."
+
+      - name: Ping IndexNow (Yahoo, DuckDuckGo, Seznam, Naver)
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" "https://api.indexnow.org/indexnow?url=https://www.kumararanya.in/sitemap.xml&key=66258ed6b2364db2a7e781ef51dc6109" | grep -q "200\|302\|202" && echo "Successfully pinged IndexNow network." || echo "Failed to ping IndexNow."

@@ -1,6 +1,7 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import MasterplanInteractive from '../components/MasterplanInteractive';
 
 export default function Home() {
   const [initialInvestment, setInitialInvestment] = useState(15000000); // 1.5 Cr
@@ -163,6 +164,18 @@ export default function Home() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* Interactive Masterplan Section */}
+      <section id="layout" style={{ padding: '100px 20px', background: '#f9f9f9', textAlign: 'center' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <h2 style={{ fontSize: '42px', color: 'var(--primary)', marginBottom: '20px' }}>Interactive Masterplan</h2>
+          <p style={{ fontSize: '18px', color: '#666', marginBottom: '60px', maxWidth: '800px', margin: '0 auto 60px' }}>
+            Explore the Aranya layout. Click on available plots to view pricing, specifications, and instantly request a 24-hour block.
+          </p>
+          
+          <MasterplanInteractive />
         </div>
       </section>
 

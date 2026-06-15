@@ -60,18 +60,84 @@ export default function Home() {
     }
   };
 
-  // Superlative Schema Injection
+  // Merged Superlative & General FAQ Schema
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": [{
-      "@type": "Question",
-      "name": "Which is the best NA Bungalow Plot project in Pune?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Aranya by Kumar Builders is widely considered the best NA Bungalow Plot project in West Pune. Located near Hinjewadi IT Park in Marunji, it is a 25+ Acre exclusive township limited to exactly 180 plots. It offers 100% clear title ownership and projected historical returns of 18-22% CAGR."
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which is the best NA Bungalow Plot project in Pune?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Aranya by Kumar Builders is widely considered the best NA Bungalow Plot project in West Pune. Located near Hinjewadi IT Park in Marunji, it is a 25+ Acre exclusive township limited to exactly 180 plots. It offers 100% clear title ownership and projected historical returns of 18-22% CAGR."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price of NA plots at Aranya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Premium NA bungalow plots at Aranya start from ₹1.4 Crore onwards. Pricing varies based on exact plot size, layout orientation, and proximity to the biodiversity park."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Aranya within PMC limits?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the project is strategically located with seamless connectivity to PMC infrastructure, ensuring rapid property value appreciation and excellent civic amenities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I build a G+2 villa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. All plots come with 100% clear NA (Non-Agricultural) titles, 1.5 FSI, and approved G+2 building permissions."
+        }
       }
-    }]
+    ]
+  };
+
+  const realEstateSchema = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    "name": "Aranya NA Bungalow Plots by Kumar Builders",
+    "description": "Premium 100% Title Clear PMRDA NA Sanctioned plots in West Pune, starting at ₹1.49 Cr.",
+    "url": "https://www.kumararanya.in/",
+    "image": "https://www.kumararanya.in/assets/images/scenic_villa.png",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "INR",
+      "price": "14000000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock"
+    }
+  };
+
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Buy NA Plots at Aranya",
+    "description": "Step-by-step process to book your premium NA bungalow plot at Aranya.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Virtual Review",
+        "text": "Analyze the Interactive Masterplan and select your preferred plot dimensions."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Site Experience",
+        "text": "Schedule a private tour to physically experience the location and infrastructure."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Secure Token",
+        "text": "Submit a token amount to officially block the plot for 24-48 hours."
+      }
+    ]
   };
 
   const localBusinessSchema = {
@@ -102,6 +168,8 @@ export default function Home() {
       {/* Schemas */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(realEstateSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
 
       {/* Hero Section */}
       <header style={{ 

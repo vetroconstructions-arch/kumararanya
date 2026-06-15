@@ -1278,7 +1278,7 @@ input[type="range"] {
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.05);
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .dropdown-content a {
@@ -1293,6 +1293,11 @@ input[type="range"] {
 .dropdown-content a:hover {
   background-color: rgba(255,255,255,0.05);
   color: var(--secondary);
+}
+
+.dropdown {
+  padding-bottom: 25px;
+  margin-bottom: -25px; /* Offset the padding so it doesn't affect layout */
 }
 
 .dropdown:hover .dropdown-content {

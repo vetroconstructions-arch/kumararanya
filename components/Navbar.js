@@ -41,9 +41,9 @@ export default function Navbar() {
         transition: 'all 0.4s ease',
         fontFamily: 'Inter, sans-serif'
       }}>
-        <div style={{ color: 'white', fontSize: '24px', fontWeight: 'bold', letterSpacing: '3px' }}>
+        <Link href="/" style={{ color: 'white', fontSize: '28px', fontWeight: '400', letterSpacing: '6px', fontFamily: 'Cinzel, serif', textDecoration: 'none' }}>
           ARANYA
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="desktop-menu" style={{ display: 'flex', gap: '25px', alignItems: 'center' }}>

@@ -46,39 +46,36 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="desktop-menu" style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
-          <Link href="/" style={{ color: 'white', textDecoration: 'none', fontSize: '14px', letterSpacing: '1px', transition: 'color 0.3s' }} className="nav-link">Overview</Link>
+        <div className="desktop-menu" style={{ display: 'flex', gap: '35px', alignItems: 'center' }}>
+          <Link href="/" style={{ color: 'white', textDecoration: 'none', fontSize: '13px', fontWeight: '600', letterSpacing: '1.5px', transition: 'color 0.3s' }} className="nav-link">HOME</Link>
+          <Link href="/#layout" style={{ color: 'white', textDecoration: 'none', fontSize: '13px', fontWeight: '600', letterSpacing: '1.5px', transition: 'color 0.3s' }} className="nav-link">PLOTS</Link>
+          <Link href="/#amenities" style={{ color: 'white', textDecoration: 'none', fontSize: '13px', fontWeight: '600', letterSpacing: '1.5px', transition: 'color 0.3s' }} className="nav-link">AMENITIES</Link>
           
           <div className="dropdown" style={{ position: 'relative' }}>
-            <span style={{ color: 'white', cursor: 'pointer', fontSize: '14px', letterSpacing: '1px' }} className="nav-link">Intelligence ▾</span>
+            <span style={{ color: 'white', cursor: 'pointer', fontSize: '13px', fontWeight: '600', letterSpacing: '1.5px' }} className="nav-link">LOCATIONS ▾</span>
             <div className="dropdown-content">
-              <Link href="/insights/pune-real-estate-market">Market Data 2026</Link>
-              <Link href="/insights/bungalow-aspirations">The Bungalow Life</Link>
-              <Link href="/insights/maharera-guidelines-faq">Buying FAQs</Link>
+              <Link href="/locations/wakad">WAKAD</Link>
+              <Link href="/locations/baner">BANER</Link>
+              <Link href="/locations/hinjewadi-phase-1">HINJEWADI</Link>
+              <Link href="/locations/bavdhan">BAVDHAN</Link>
+              <Link href="/nri/dubai">DUBAI (NRI)</Link>
             </div>
           </div>
 
-          <div className="dropdown" style={{ position: 'relative' }}>
-            <span style={{ color: 'white', cursor: 'pointer', fontSize: '14px', letterSpacing: '1px' }} className="nav-link">Micro-Markets ▾</span>
-            <div className="dropdown-content">
-              <Link href="/locations/wakad">Wakad</Link>
-              <Link href="/locations/baner">Baner</Link>
-              <Link href="/locations/hinjewadi-phase-1">Hinjewadi</Link>
-              <Link href="/locations/bavdhan">Bavdhan</Link>
-            </div>
-          </div>
+          <Link href="/#contact" style={{ color: 'white', textDecoration: 'none', fontSize: '13px', fontWeight: '600', letterSpacing: '1.5px', transition: 'color 0.3s' }} className="nav-link">CONTACT</Link>
 
-          <Link href="/#contact" style={{ 
-            padding: '10px 24px', 
-            border: '1px solid var(--secondary)', 
-            color: 'var(--secondary)', 
+          <Link href="/#layout" style={{ 
+            padding: '12px 28px', 
+            background: 'var(--secondary)', 
+            color: 'var(--primary)', 
             textDecoration: 'none', 
-            fontSize: '14px', 
-            letterSpacing: '1px', 
+            fontSize: '13px', 
+            fontWeight: 'bold',
+            letterSpacing: '1.5px', 
             borderRadius: '4px',
             transition: 'all 0.3s'
           }} className="btn-enquire">
-            Enquire Now
+            BOOK NOW
           </Link>
         </div>
 
@@ -112,14 +109,15 @@ export default function Navbar() {
         transition: 'opacity 0.4s ease'
       }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '30px', textAlign: 'center' }}>
-          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '24px', letterSpacing: '2px' }}>Overview</Link>
-          <div style={{ color: 'var(--secondary)', fontSize: '14px', letterSpacing: '2px', marginTop: '20px' }}>INTELLIGENCE</div>
-          <Link href="/insights/pune-real-estate-market" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '20px' }}>Market Data 2026</Link>
-          <Link href="/insights/bungalow-aspirations" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '20px' }}>The Bungalow Life</Link>
-          <div style={{ color: 'var(--secondary)', fontSize: '14px', letterSpacing: '2px', marginTop: '20px' }}>MARKETS</div>
-          <Link href="/locations/wakad" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '20px' }}>Wakad</Link>
-          <Link href="/locations/baner" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '20px' }}>Baner</Link>
-          <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)} style={{ marginTop: '30px', padding: '15px 40px', background: 'var(--primary)', color: 'var(--secondary)', border: '1px solid var(--secondary)', textDecoration: 'none', fontSize: '18px', fontWeight: 'bold' }}>Enquire Now</Link>
+          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '24px', fontWeight: 'bold', letterSpacing: '2px' }}>HOME</Link>
+          <Link href="/#layout" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '24px', fontWeight: 'bold', letterSpacing: '2px' }}>PLOTS</Link>
+          <Link href="/#amenities" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '24px', fontWeight: 'bold', letterSpacing: '2px' }}>AMENITIES</Link>
+          <div style={{ color: 'var(--secondary)', fontSize: '14px', letterSpacing: '2px', marginTop: '10px' }}>LOCATIONS</div>
+          <Link href="/locations/wakad" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '18px' }}>WAKAD</Link>
+          <Link href="/locations/baner" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '18px' }}>BANER</Link>
+          <Link href="/locations/bavdhan" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '18px' }}>BAVDHAN</Link>
+          <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '24px', fontWeight: 'bold', letterSpacing: '2px', marginTop: '10px' }}>CONTACT</Link>
+          <Link href="/#layout" onClick={() => setIsMobileMenuOpen(false)} style={{ marginTop: '20px', padding: '15px 40px', background: 'var(--secondary)', color: 'var(--primary)', textDecoration: 'none', fontSize: '18px', fontWeight: 'bold', borderRadius: '4px' }}>BOOK NOW</Link>
         </div>
       </div>
     </>

@@ -16,7 +16,7 @@ export default function ExpansiveData() {
     <div style={{ width: '100%' }}>
       
       {/* Amenities Matrix */}
-      <section style={{ padding: '100px 20px', background: '#0a192f', color: 'white' }}>
+      <section id="amenities" style={{ padding: '100px 20px', background: '#0a192f', color: 'white' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '42px', color: 'var(--secondary)', marginBottom: '20px', textAlign: 'center' }}>World-Class Infrastructure</h2>
           <p style={{ fontSize: '18px', color: '#ccc', textAlign: 'center', maxWidth: '800px', margin: '0 auto 60px' }}>
@@ -41,7 +41,7 @@ export default function ExpansiveData() {
       </section>
 
       {/* Plot Configuration & Specifications */}
-      <section style={{ padding: '100px 20px', background: '#f9f9f9' }}>
+      <section id="plots" style={{ padding: '100px 20px', background: '#f9f9f9' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '42px', color: 'var(--primary)', marginBottom: '20px', textAlign: 'center' }}>Plot Specifications & FSI</h2>
           <p style={{ fontSize: '18px', color: '#666', textAlign: 'center', maxWidth: '800px', margin: '0 auto 60px' }}>

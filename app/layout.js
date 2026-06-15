@@ -33,6 +33,7 @@ import Navbar from '../components/Navbar';
 import SchemaMarkup from '../components/SchemaMarkup';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
+import { seoMatrix } from './seoMatrixData';
 
 export default function RootLayout({ children }) {
   return (
@@ -77,6 +78,17 @@ export default function RootLayout({ children }) {
                 <Link href="/locations/bhugaon" style={{ color: '#aaa', textDecoration: 'none', fontSize: '14px' }}>Plots near Bhugaon</Link>
                 <Link href="/locations/pirangut" style={{ color: '#aaa', textDecoration: 'none', fontSize: '14px' }}>Plots near Pirangut</Link>
                 <Link href="/locations/marunji" style={{ color: '#aaa', textDecoration: 'none', fontSize: '14px' }}>Plots near Marunji</Link>
+              </div>
+            </div>
+            
+            <div style={{ marginBottom: '40px' }}>
+              <h4 style={{ color: 'var(--secondary)', marginBottom: '20px', fontSize: '18px' }}>Popular Real Estate Searches</h4>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '15px' }}>
+                {seoMatrix.slice(0, 20).map((item, idx) => (
+                  <Link key={idx} href={`/search/${item.slug}`} style={{ color: '#aaa', textDecoration: 'none', fontSize: '14px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    {item.title}
+                  </Link>
+                ))}
               </div>
             </div>
             <div style={{ textAlign: 'center', borderTop: '1px solid #1a2a42', paddingTop: '20px' }}>

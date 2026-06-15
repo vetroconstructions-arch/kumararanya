@@ -1,6 +1,7 @@
 import { locationsData } from './locationsData';
 import { insightsData } from './insightsData';
 import { nriData } from './nriData';
+import { seoMatrix } from './seoMatrixData';
 
 export default function sitemap() {
   const baseUrl = 'https://www.kumararanya.in';
@@ -39,5 +40,13 @@ export default function sitemap() {
     priority: 0.9,
   }));
 
-  return [...routes, ...insightRoutes, ...locationRoutes, ...nriRoutes];
+  // Dynamic Programmatic SEO routes
+  const pSeoRoutes = seoMatrix.map((item) => ({
+    url: `${baseUrl}/search/${item.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }));
+
+  return [...routes, ...insightRoutes, ...locationRoutes, ...nriRoutes, ...pSeoRoutes];
 }

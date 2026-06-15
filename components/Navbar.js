@@ -51,29 +51,29 @@ export default function Navbar() {
           <div className="dropdown" style={{ position: 'relative' }}>
             <span style={{ color: 'white', cursor: 'pointer', fontSize: '12px', fontWeight: '600', letterSpacing: '1.5px' }} className="nav-link">PROJECT ▾</span>
             <div className="dropdown-content">
-              <Link href="/">The Vision</Link>
-              <Link href="/">The Developers</Link>
-              <Link href="/">Gallery</Link>
+                <Link href="/aranya-na-bungalow-plots-hinjewadi/pricing">Compact Villas</Link>
+                <Link href="/aranya-na-bungalow-plots-hinjewadi/pricing">Premium Estates</Link>
+                <Link href="/aranya-na-bungalow-plots-hinjewadi/masterplan">Interactive Layout</Link>
             </div>
           </div>
 
           <div className="dropdown" style={{ position: 'relative' }}>
             <span style={{ color: 'white', cursor: 'pointer', fontSize: '12px', fontWeight: '600', letterSpacing: '1.5px' }} className="nav-link">MASTERPLAN ▾</span>
             <div className="dropdown-content">
-              <Link href="/#plots">2,240 sq.ft Compact Villas</Link>
-              <Link href="/#plots">5,000 sq.ft Premium Estates</Link>
-              <Link href="/#plots">7,600 sq.ft Signature Estates</Link>
-              <Link href="/#layout">Interactive SVG Layout</Link>
+              <Link href="/aranya-na-bungalow-plots-hinjewadi/pricing">2,240 sq.ft Compact Villas</Link>
+              <Link href="/aranya-na-bungalow-plots-hinjewadi/pricing">5,000 sq.ft Premium Estates</Link>
+              <Link href="/aranya-na-bungalow-plots-hinjewadi/pricing">7,600 sq.ft Signature Estates</Link>
+              <Link href="/aranya-na-bungalow-plots-hinjewadi/masterplan">Interactive SVG Layout</Link>
             </div>
           </div>
 
           <div className="dropdown" style={{ position: 'relative' }}>
             <span style={{ color: 'white', cursor: 'pointer', fontSize: '12px', fontWeight: '600', letterSpacing: '1.5px' }} className="nav-link">INFRASTRUCTURE ▾</span>
             <div className="dropdown-content">
-              <Link href="/#amenities">2.5 Acre Clubhouse</Link>
-              <Link href="/#amenities">Miyawaki Forest & Biodiversity</Link>
-              <Link href="/#amenities">45-ft Boulevards & Solar</Link>
-              <Link href="/#amenities">3-Tier Security System</Link>
+              <Link href="/aranya-na-bungalow-plots-hinjewadi/amenities">2.5 Acre Clubhouse</Link>
+              <Link href="/aranya-na-bungalow-plots-hinjewadi/amenities">Miyawaki Forest & Biodiversity</Link>
+              <Link href="/aranya-na-bungalow-plots-hinjewadi/amenities">45-ft Boulevards & Solar</Link>
+              <Link href="/aranya-na-bungalow-plots-hinjewadi/amenities">3-Tier Security System</Link>
             </div>
           </div>
 
@@ -88,7 +88,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link href="/#layout" style={{ 
+          <Link href="/aranya-na-bungalow-plots-hinjewadi/masterplan" style={{ 
             padding: '10px 24px', 
             background: 'var(--secondary)', 
             color: 'var(--primary)', 
@@ -136,19 +136,21 @@ export default function Navbar() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', textAlign: 'center', width: '100%', maxWidth: '300px' }}>
           
           <div style={{ color: 'var(--secondary)', fontSize: '12px', letterSpacing: '2px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' }}>PROJECT</div>
-          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '16px' }}>The Vision</Link>
+          <Link href="/aranya-na-bungalow-plots-hinjewadi/pricing" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '16px' }}>Compact Villas</Link>
+          <Link href="/aranya-na-bungalow-plots-hinjewadi/pricing" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '16px' }}>Premium Estates</Link>
           
           <div style={{ color: 'var(--secondary)', fontSize: '12px', letterSpacing: '2px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px', marginTop: '10px' }}>MASTERPLAN</div>
-          <Link href="/#layout" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '16px' }}>Interactive Layout</Link>
-          <Link href="/#plots" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '16px' }}>Plot Specifications</Link>
+          <Link href="/aranya-na-bungalow-plots-hinjewadi/masterplan" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '16px' }}>Interactive Layout</Link>
           
           <div style={{ color: 'var(--secondary)', fontSize: '12px', letterSpacing: '2px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px', marginTop: '10px' }}>INFRASTRUCTURE</div>
-          <Link href="/#amenities" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '16px' }}>Clubhouse & Amenities</Link>
+          <Link href="/aranya-na-bungalow-plots-hinjewadi/amenities" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '16px' }}>Clubhouse & Amenities</Link>
           
           <div style={{ color: 'var(--secondary)', fontSize: '12px', letterSpacing: '2px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px', marginTop: '10px' }}>LOCATION</div>
           <Link href="/locations/hinjewadi-phase-1" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '16px' }}>Hinjewadi IT Park</Link>
 
-          <Link href="/#layout" onClick={() => setIsMobileMenuOpen(false)} style={{ marginTop: '20px', padding: '15px 40px', background: 'var(--secondary)', color: 'var(--primary)', textDecoration: 'none', fontSize: '16px', fontWeight: 'bold', borderRadius: '4px' }}>BOOK NOW</Link>
+          <Link href="/aranya-na-bungalow-plots-hinjewadi/masterplan" onClick={() => setIsMobileMenuOpen(false)} style={{ padding: '15px', background: 'var(--secondary)', color: 'var(--primary)', textAlign: 'center', marginTop: '20px', borderRadius: '4px', textDecoration: 'none', fontWeight: 'bold', letterSpacing: '1px' }}>
+              INTERACTIVE LAYOUT
+          </Link>
         </div>
       </div>
     </>

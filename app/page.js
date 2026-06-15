@@ -195,10 +195,13 @@ export default function Home() {
             Secure your generational legacy with 2240 - 7600 SQFT premium plots in an exclusive 25-Acre Township in Marunji, Hinjewadi.
           </p>
           <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="#roi-calculator" style={{ padding: '18px 40px', background: 'var(--primary)', color: 'var(--secondary)', textDecoration: 'none', fontSize: '18px', fontWeight: 'bold', border: '1px solid var(--secondary)', transition: 'all 0.3s' }}>
+            <Link href="/aranya-na-bungalow-plots-hinjewadi/masterplan" className="btn btn-outline" style={{ display: 'inline-block', padding: '15px 40px', color: 'var(--secondary)', border: '1px solid var(--secondary)', textDecoration: 'none', fontSize: '18px', fontWeight: 'bold' }}>
+              View Interactive Masterplan
+            </Link>
+            <a href="/aranya-na-bungalow-plots-hinjewadi/roi-calculator" style={{ padding: '18px 40px', background: 'var(--primary)', color: 'var(--secondary)', textDecoration: 'none', fontSize: '18px', fontWeight: 'bold', border: '1px solid var(--secondary)', transition: 'all 0.3s' }}>
               Calculate ROI
             </a>
-            <a href="#contact" style={{ padding: '18px 40px', background: 'transparent', color: 'white', textDecoration: 'none', fontSize: '18px', border: '1px solid white', transition: 'all 0.3s' }}>
+            <a href="/aranya-na-bungalow-plots-hinjewadi/contact" style={{ padding: '18px 40px', background: 'transparent', color: 'white', textDecoration: 'none', fontSize: '18px', border: '1px solid white', transition: 'all 0.3s' }}>
               Direct Enquiry
             </a>
           </div>

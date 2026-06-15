@@ -9,8 +9,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }) {
-  const data = seoMatrix.find(item => item.slug === params.keyword);
+export async function generateMetadata({ params }) {
+  const { keyword } = await params;
+  const data = seoMatrix.find(item => item.slug === keyword);
   
   if (!data) return { title: 'Not Found' };
   
@@ -23,8 +24,9 @@ export function generateMetadata({ params }) {
   }
 }
 
-export default function KeywordPage({ params }) {
-  const data = seoMatrix.find(item => item.slug === params.keyword);
+export default async function KeywordPage({ params }) {
+  const { keyword } = await params;
+  const data = seoMatrix.find(item => item.slug === keyword);
 
   if (!data) return <div>Data not found</div>;
 

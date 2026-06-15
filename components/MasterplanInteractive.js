@@ -45,6 +45,25 @@ export default function MasterplanInteractive() {
         body: JSON.stringify(payload)
       });
       setEnquiryStatus('success');
+
+      // Fire Conversion Events
+      if (typeof window !== 'undefined') {
+        if (window.gtag) {
+          window.gtag('event', 'generate_lead', {
+            event_category: 'Plot Block',
+            event_label: `Plot ${selectedPlot.id}`,
+            value: 14000000
+          });
+        }
+        if (window.fbq) {
+          window.fbq('track', 'Lead', {
+            content_name: `Plot ${selectedPlot.id} Block`,
+            value: 14000000,
+            currency: 'INR'
+          });
+        }
+      }
+
       setTimeout(() => setSelectedPlot(null), 3000); // close after 3s
     } catch (err) {
       setEnquiryStatus('error');

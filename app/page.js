@@ -36,6 +36,21 @@ export default function Home() {
       if (res.ok) {
         setFormStatus('success');
         setFormData({ name: '', phone: '', email: '' });
+
+        // Fire Conversion Events
+        if (typeof window !== 'undefined') {
+          if (window.gtag) {
+            window.gtag('event', 'generate_lead', {
+              event_category: 'General Enquiry',
+              event_label: 'Homepage Form'
+            });
+          }
+          if (window.fbq) {
+            window.fbq('track', 'Lead', {
+              content_name: 'Homepage Enquiry'
+            });
+          }
+        }
       } else {
         setFormStatus('error');
       }

@@ -40,6 +40,8 @@ import SchemaMarkup from '../components/SchemaMarkup';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 import { seoMatrix } from './seoMatrixData';
+import WhatsAppFAB from '../components/WhatsAppFAB';
+import ExitIntentPopup from '../components/ExitIntentPopup';
 
 export default function RootLayout({ children }) {
   return (
@@ -63,7 +65,9 @@ export default function RootLayout({ children }) {
       <body>
         <SchemaMarkup />
         <Navbar />
+        <ExitIntentPopup />
         {children}
+        <WhatsAppFAB />
         <footer style={{ background: '#0a192f', color: 'white', padding: '60px 20px 20px', borderTop: '1px solid #1a2a42' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <div style={{ marginBottom: '40px' }}>

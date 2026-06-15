@@ -37,8 +37,35 @@ export async function POST(req) {
       `,
     };
 
-    // Send the email
-    await transporter.sendMail(mailOptions);
+    // Send the email (fallback)
+    try {
+      await transporter.sendMail(mailOptions);
+    } catch(emailErr) {
+      console.log("Email failed, but continuing to webhook", emailErr);
+    }
+
+    // -------------------------------------------------------------
+    // ADVANCED WEBHOOK INTEGRATION (ZAPIER, MAKE.COM, GOOGLE SHEETS)
+    // -------------------------------------------------------------
+    const WEBHOOK_URL = process.env.CRM_WEBHOOK_URL; // Add this to Vercel Env variables
+    if (WEBHOOK_URL) {
+      try {
+        await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: name || 'Not Provided',
+            phone: phone,
+            email: email || 'Not Provided',
+            source: req.body?.source || 'Website Enquiry',
+            project: projectInterest || 'Aranya NA Bungalow Plots',
+            timestamp: new Date().toISOString()
+          })
+        });
+      } catch(webhookErr) {
+        console.error('Webhook Error:', webhookErr);
+      }
+    }
 
     return new Response(JSON.stringify({ success: true, message: 'Enquiry sent successfully.' }), {
       status: 200,

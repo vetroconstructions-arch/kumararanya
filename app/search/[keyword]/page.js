@@ -19,7 +19,16 @@ export async function generateMetadata({ params }) {
     title: `${data.title} | Aranya PMRDA NA Plots`,
     description: data.hook,
     alternates: {
-      canonical: `https://www.kumararanya.in/search/${params.keyword}`
+      canonical: `https://www.kumararanya.in/search/${keyword}`
+    },
+    openGraph: {
+      images: [
+        {
+          url: `https://www.kumararanya.in/api/og?title=${encodeURIComponent(data.title)}&subtitle=${encodeURIComponent(data.hook)}`,
+          width: 1200,
+          height: 630,
+        }
+      ],
     }
   }
 }

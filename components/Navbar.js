@@ -51,16 +51,7 @@ export default function Navbar() {
           <Link href="/#layout" style={{ color: 'white', textDecoration: 'none', fontSize: '13px', fontWeight: '600', letterSpacing: '1.5px', transition: 'color 0.3s' }} className="nav-link">PLOTS</Link>
           <Link href="/#amenities" style={{ color: 'white', textDecoration: 'none', fontSize: '13px', fontWeight: '600', letterSpacing: '1.5px', transition: 'color 0.3s' }} className="nav-link">AMENITIES</Link>
           
-          <div className="dropdown" style={{ position: 'relative' }}>
-            <span style={{ color: 'white', cursor: 'pointer', fontSize: '13px', fontWeight: '600', letterSpacing: '1.5px' }} className="nav-link">LOCATIONS ▾</span>
-            <div className="dropdown-content">
-              <Link href="/locations/wakad">WAKAD</Link>
-              <Link href="/locations/baner">BANER</Link>
-              <Link href="/locations/hinjewadi-phase-1">HINJEWADI</Link>
-              <Link href="/locations/bavdhan">BAVDHAN</Link>
-              <Link href="/nri/dubai">DUBAI (NRI)</Link>
-            </div>
-          </div>
+          <Link href="/locations/hinjewadi-phase-1" style={{ color: 'white', textDecoration: 'none', fontSize: '13px', fontWeight: '600', letterSpacing: '1.5px', transition: 'color 0.3s' }} className="nav-link">LOCATION</Link>
 
           <Link href="/#contact" style={{ color: 'white', textDecoration: 'none', fontSize: '13px', fontWeight: '600', letterSpacing: '1.5px', transition: 'color 0.3s' }} className="nav-link">CONTACT</Link>
 
@@ -112,10 +103,7 @@ export default function Navbar() {
           <Link href="/" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '24px', fontWeight: 'bold', letterSpacing: '2px' }}>HOME</Link>
           <Link href="/#layout" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '24px', fontWeight: 'bold', letterSpacing: '2px' }}>PLOTS</Link>
           <Link href="/#amenities" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '24px', fontWeight: 'bold', letterSpacing: '2px' }}>AMENITIES</Link>
-          <div style={{ color: 'var(--secondary)', fontSize: '14px', letterSpacing: '2px', marginTop: '10px' }}>LOCATIONS</div>
-          <Link href="/locations/wakad" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '18px' }}>WAKAD</Link>
-          <Link href="/locations/baner" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '18px' }}>BANER</Link>
-          <Link href="/locations/bavdhan" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '18px' }}>BAVDHAN</Link>
+          <Link href="/locations/hinjewadi-phase-1" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '24px', fontWeight: 'bold', letterSpacing: '2px' }}>LOCATION</Link>
           <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '24px', fontWeight: 'bold', letterSpacing: '2px', marginTop: '10px' }}>CONTACT</Link>
           <Link href="/#layout" onClick={() => setIsMobileMenuOpen(false)} style={{ marginTop: '20px', padding: '15px 40px', background: 'var(--secondary)', color: 'var(--primary)', textDecoration: 'none', fontSize: '18px', fontWeight: 'bold', borderRadius: '4px' }}>BOOK NOW</Link>
         </div>

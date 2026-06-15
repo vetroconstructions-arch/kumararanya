@@ -18,6 +18,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--background);
@@ -1278,7 +1282,6 @@ input[type="range"] {
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.05);
-  margin-top: 20px;
 }
 
 .dropdown-content a {
@@ -1296,8 +1299,8 @@ input[type="range"] {
 }
 
 .dropdown {
-  padding-bottom: 25px;
-  margin-bottom: -25px; /* Offset the padding so it doesn't affect layout */
+  padding-bottom: 20px;
+  margin-bottom: -20px;
 }
 
 .dropdown:hover .dropdown-content {

@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 
 export default function PlotAvailability() {
   const [plots, setPlots] = useState([]);
+  const [selectedPlot, setSelectedPlot] = useState(null);
+  const [paymentStatus, setPaymentStatus] = useState('idle'); // idle, processing, success
 
   useEffect(() => {
     // Generate 48 interactive plots algorithmically
@@ -81,6 +83,9 @@ export default function PlotAvailability() {
               overflow: 'hidden'
             }}
             whileHover={plot.status === 'AVAILABLE' ? { scale: 1.05, background: 'rgba(255,255,255,0.1)' } : {}}
+            onClick={() => {
+              if(plot.status === 'AVAILABLE') setSelectedPlot(plot);
+            }}
           >
             {plot.isCorner && <div style={{ position: 'absolute', top: '-10px', right: '-15px', background: 'var(--secondary)', color: 'black', fontSize: '9px', fontWeight: 'bold', padding: '15px 15px 5px', transform: 'rotate(45deg)' }}>★</div>}
             
@@ -99,6 +104,55 @@ export default function PlotAvailability() {
           </motion.div>
         ))}
       </div>
+
+      {/* FinTech Token Booking Modal */}
+      {selectedPlot && (
+        <div style={{
+          position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh',
+          background: 'rgba(10, 25, 47, 0.9)', backdropFilter: 'blur(10px)',
+          zIndex: 10000, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px'
+        }}>
+          <div style={{ background: 'white', color: 'black', padding: '40px', borderRadius: '16px', maxWidth: '500px', width: '100%', position: 'relative' }}>
+            <button onClick={() => { setSelectedPlot(null); setPaymentStatus('idle'); }} style={{ position: 'absolute', top: '15px', right: '20px', background: 'transparent', border: 'none', fontSize: '24px', cursor: 'pointer' }}>×</button>
+            
+            {paymentStatus === 'success' ? (
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '60px', marginBottom: '20px' }}>✅</div>
+                <h2 style={{ color: 'var(--primary)', marginBottom: '15px' }}>Token Secured</h2>
+                <p>Plot {selectedPlot.id} is now temporarily held in your name. Our executive will call you within 15 minutes.</p>
+              </div>
+            ) : (
+              <>
+                <h2 style={{ fontSize: '24px', color: 'var(--primary)', marginBottom: '10px' }}>Secure Plot {selectedPlot.id}</h2>
+                <p style={{ color: '#666', marginBottom: '20px' }}>Type: {selectedPlot.type} ({selectedPlot.size})</p>
+                
+                <div style={{ background: '#f4f4f4', padding: '20px', borderRadius: '8px', marginBottom: '20px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+                    <span>Refundable Holding Token:</span>
+                    <span style={{ fontWeight: 'bold' }}>₹ 1,00,000</span>
+                  </div>
+                  <div style={{ fontSize: '11px', color: '#888' }}>Powered by Razorpay Secure. Fully refundable if you cancel within 48 hours.</div>
+                </div>
+
+                <button 
+                  onClick={() => {
+                    setPaymentStatus('processing');
+                    setTimeout(() => {
+                      setPaymentStatus('success');
+                      // Update the live grid
+                      setPlots(prev => prev.map(p => p.id === selectedPlot.id ? { ...p, status: 'HOLD' } : p));
+                    }, 2000);
+                  }}
+                  disabled={paymentStatus === 'processing'}
+                  className="btn" style={{ width: '100%', padding: '15px', fontSize: '18px' }}
+                >
+                  {paymentStatus === 'processing' ? 'Processing Gateway...' : 'Pay Token via UPI / Card'}
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

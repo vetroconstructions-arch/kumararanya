@@ -21,7 +21,7 @@ export const locationsData = {
     name: "Sus",
     driveTime: "15 Minutes",
     aptPrice: "₹1.5 Cr",
-    hook: "Sus is rapidly saturating. Move slightly further to Hinjewadi Phase 3 extension to secure 100% RERA approved NA Plots."
+    hook: "Sus is rapidly saturating. Move slightly further to Hinjewadi Phase 3 extension to secure 100% PMRDA NA Sanctioned & Ready Possession Plots."
   },
   "bavdhan": {
     name: "Bavdhan",

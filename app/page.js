@@ -118,7 +118,7 @@ export default function Home() {
       }}>
         <div style={{ maxWidth: '1000px' }}>
           <div style={{ display: 'inline-block', padding: '8px 16px', border: '1px solid var(--secondary)', color: 'var(--secondary)', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '14px', marginBottom: '30px' }}>
-            RERA Approved • 100% Title Clear
+            PMRDA NA Sanctioned • Ready Possession
           </div>
           <h1 style={{ fontSize: '64px', fontWeight: 'bold', marginBottom: '20px', lineHeight: '1.1' }}>
             The Best NA Bungalow Plots in <span style={{ color: 'var(--secondary)' }}>West Pune</span>
@@ -203,7 +203,7 @@ export default function Home() {
         <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontSize: '42px', color: 'white', marginBottom: '20px' }}>Secure Your Legacy Today</h2>
           <p style={{ fontSize: '18px', color: '#aaa', marginBottom: '40px' }}>
-            Bypass third-party brokers. Connect directly with the Aranya Sales Team for exact plot availability, exclusive pricing, and RERA documentation.
+            Bypass third-party brokers. Connect directly with the Aranya Sales Team for exact plot availability, exclusive pricing, and PMRDA NA sanction documentation.
           </p>
 
           <form onSubmit={handleEnquirySubmit} style={{ background: 'white', padding: '40px', borderRadius: '12px', textAlign: 'left', marginBottom: '40px' }}>

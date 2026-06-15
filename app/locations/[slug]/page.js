@@ -14,7 +14,7 @@ export async function generateMetadata({ params }) {
   
   return {
     title: `Best NA Bungalow Plots near ${data.name} | Aranya by Kumar Builders`,
-    description: `Looking for plots or apartments in ${data.name}? ${data.hook} Aranya offers premium 100% Title Clear RERA approved NA plots.`,
+    description: `Looking for plots or apartments in ${data.name}? ${data.hook} Aranya offers premium 100% Title Clear PMRDA NA Sanctioned & Ready Possession plots.`,
   }
 }
 

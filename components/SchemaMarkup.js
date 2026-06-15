@@ -11,7 +11,7 @@ export default function SchemaMarkup() {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",
     "name": "Aranya NA Bungalow Plots by Kumar Builders",
-    "description": "Premium 100% Title Clear RERA approved NA plots in West Pune, starting at ₹1.4 Cr.",
+    "description": "Premium 100% Title Clear PMRDA NA Sanctioned plots in West Pune, starting at ₹1.49 Cr.",
     "url": "https://www.kumararanya.in/",
     "image": "https://www.kumararanya.in/assets/images/scenic_villa.png",
     "offers": {

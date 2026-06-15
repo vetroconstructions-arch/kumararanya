@@ -36,7 +36,7 @@ export const nriData = {
     locale: "en-AU",
     currency: "AUD",
     convertedPrice: "~$255,000 AUD",
-    hook: "While Sydney housing becomes unattainable, Pune land offers guaranteed 18% CAGR. Manage your high-yield Indian asset completely remotely with our 100% transparent RERA compliance.",
+    hook: "While Sydney housing becomes unattainable, Pune land offers guaranteed 18% CAGR. Manage your high-yield Indian asset completely remotely with our 100% transparent PMRDA NA Sanctioned & Ready Possession status.",
     timeZone: "AEST (Australian Eastern Standard Time)",
   }
 };

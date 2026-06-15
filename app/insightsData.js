@@ -54,20 +54,20 @@ export const insightsData = {
   },
   "maharera-guidelines-faq": {
     title: "The Ultimate NA Plot Buyer's FAQ",
-    subtitle: "Everything you need to know about FSI, 7/12 Extracts, and RERA Guarantees.",
+    subtitle: "Everything you need to know about FSI, 7/12 Extracts, and PMRDA NA Sanctions.",
     heroImage: "/assets/images/clubhouse.jpg",
     sections: [
       {
         type: "text",
         heading: "Demystifying Land Procurement",
-        content: "Buying land in Maharashtra requires strict adherence to legal frameworks. Kumar Builders ensures that Aranya is 100% Title Clear, RERA Approved, and fully compliant with Town Planning authorities."
+        content: "Buying land in Maharashtra requires strict adherence to legal frameworks. Kumar Builders ensures that Aranya is 100% Title Clear, PMRDA NA Sanctioned, and a Ready Possession project fully compliant with Town Planning authorities."
       }
     ],
     faqs: [
       { question: "What is an NA (Non-Agricultural) Plot?", answer: "An NA plot means the land has been legally converted by the Collector from agricultural use to residential/commercial use. Buying an NA plot ensures you can legally construct a home immediately." },
       { question: "What does 'Title Clear' mean?", answer: "Title Clear means the land has a complete, unbroken chain of historical ownership with zero encumbrances, legal disputes, or pending bank liens. Aranya offers a 100% Title Clear guarantee backed by top legal firms." },
       { question: "What is the FSI for Aranya plots?", answer: "Aranya plots offer a standard FSI of 1.4 to 1.5 (subject to specific plot location and PMRDA rules), allowing you to construct massive, multi-level luxury bungalows." },
-      { question: "Do you provide financing and Home Loans?", answer: "Yes. Because Aranya is a premium MahaRERA approved project, we have pre-approved funding tie-ups with HDFC, SBI, and ICICI for both plot purchase and construction loans." },
+      { question: "Do you provide financing and Home Loans?", answer: "Yes. Because Aranya is a premium PMRDA NA Sanctioned project, we have pre-approved funding tie-ups with HDFC, SBI, and ICICI for both plot purchase and construction loans." },
       { question: "Can I buy a plot now and build later?", answer: "Absolutely. Many investors secure the land at today's price to capture the massive 18% CAGR appreciation, and choose to construct their generational bungalow 3 to 5 years later." }
     ]
   }

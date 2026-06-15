@@ -1,5 +1,6 @@
 import Navbar from '../../../components/Navbar';
 import Link from 'next/link';
+import PlotAvailability from '../../../components/PlotAvailability';
 
 export const metadata = {
   title: 'Pricing & Dimensions | Aranya NA Bungalow Plots in Hinjewadi',
@@ -62,6 +63,9 @@ export default function PricingPage() {
           </div>
 
         </div>
+
+        {/* Live Inventory FOMO Grid */}
+        <PlotAvailability />
       </div>
     </main>
   );

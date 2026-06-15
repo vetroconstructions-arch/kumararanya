@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import MasterplanInteractive from '../components/MasterplanInteractive';
 import ExpansiveData from '../components/ExpansiveData';
 
@@ -172,41 +173,27 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
 
       {/* Hero Section */}
-      <header style={{ 
-        height: '90vh', 
-        background: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('/assets/images/scenic_villa.png')`, 
-        backgroundSize: 'cover', 
-        backgroundPosition: 'center', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        textAlign: 'center', 
-        color: 'white',
-        padding: '20px'
-      }}>
-        <div style={{ maxWidth: '1000px' }}>
-          <div style={{ display: 'inline-block', padding: '8px 16px', border: '1px solid var(--secondary)', color: 'var(--secondary)', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '14px', marginBottom: '30px' }}>
-            PMRDA NA Sanctioned • Ready Possession
-          </div>
-          <h1 style={{ fontSize: '64px', fontWeight: 'bold', marginBottom: '20px', lineHeight: '1.1' }}>
-            The Best NA Bungalow Plots in <span style={{ color: 'var(--secondary)' }}>West Pune</span>
-          </h1>
-          <p style={{ fontSize: '24px', fontWeight: '300', opacity: 0.9, marginBottom: '40px', maxWidth: '800px', margin: '0 auto 40px' }}>
-            Secure your generational legacy with 2240 - 7600 SQFT premium plots in an exclusive 25-Acre Township in Marunji, Hinjewadi.
-          </p>
-          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/aranya-na-bungalow-plots-hinjewadi/masterplan" className="btn btn-outline" style={{ display: 'inline-block', padding: '15px 40px', color: 'var(--secondary)', border: '1px solid var(--secondary)', textDecoration: 'none', fontSize: '18px', fontWeight: 'bold' }}>
-              View Interactive Masterplan
-            </Link>
-            <a href="/aranya-na-bungalow-plots-hinjewadi/roi-calculator" style={{ padding: '18px 40px', background: 'var(--primary)', color: 'var(--secondary)', textDecoration: 'none', fontSize: '18px', fontWeight: 'bold', border: '1px solid var(--secondary)', transition: 'all 0.3s' }}>
-              Calculate ROI
-            </a>
-            <a href="/aranya-na-bungalow-plots-hinjewadi/contact" style={{ padding: '18px 40px', background: 'transparent', color: 'white', textDecoration: 'none', fontSize: '18px', border: '1px solid white', transition: 'all 0.3s' }}>
-              Direct Enquiry
-            </a>
-          </div>
+      <section style={{ height: '100vh', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundImage: 'url(/assets/images/scenic_villa.png)', backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.6)' }} />
+        
+        <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '0 20px' }}>
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <div style={{ fontSize: '14px', letterSpacing: '4px', textTransform: 'uppercase', marginBottom: '20px', color: 'var(--secondary)', fontWeight: 'bold' }}>The Ultimate Legacy Investment</div>
+            <h1 style={{ fontSize: '64px', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1', textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>ARANYA <br/>PMRDA NA PLOTS</h1>
+            <p style={{ fontSize: '24px', maxWidth: '800px', margin: '0 auto 40px', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+              A 25+ Acre Super-Premium Gated Community<br/>Just 15 minutes from Hinjewadi IT Park.
+            </p>
+            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
+              <Link href="/aranya-na-bungalow-plots-hinjewadi/pricing" className="btn" style={{ padding: '20px 40px', fontSize: '18px', boxShadow: '0 10px 30px rgba(212, 175, 55, 0.3)' }}>View Pricing & Details</Link>
+              <Link href="/aranya-na-bungalow-plots-hinjewadi/contact" className="btn btn-outline" style={{ padding: '20px 40px', fontSize: '18px', color: 'white', borderColor: 'white' }}>Schedule a Site Visit</Link>
+            </div>
+          </motion.div>
         </div>
-      </header>
+      </section>
 
       {/* ROI Calculator Section */}
       <section id="roi-calculator" style={{ padding: '100px 20px', background: 'white' }}>

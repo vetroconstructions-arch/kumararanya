@@ -82,9 +82,9 @@ export default function Navbar() {
           <div className="dropdown" style={{ position: 'relative' }}>
             <span style={{ color: 'white', cursor: 'pointer', fontSize: '12px', fontWeight: '600', letterSpacing: '1.5px' }} className="nav-link">RESOURCES ▾</span>
             <div className="dropdown-content">
-              <Link href="/insights/maharera-guidelines-faq">Buying FAQs & PMRDA</Link>
-              <Link href="/insights/pune-real-estate-market">Pune Market Data 2026</Link>
+              <Link href="/blog">Real Estate Insights (Blog)</Link>
               <Link href="/nri/dubai">NRI Investment Portal</Link>
+              <Link href="/partners">Channel Partner Login</Link>
             </div>
           </div>
 

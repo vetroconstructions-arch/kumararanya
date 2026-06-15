@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import MasterplanInteractive from '../components/MasterplanInteractive';
+import ExpansiveData from '../components/ExpansiveData';
 
 export default function Home() {
   const [initialInvestment, setInitialInvestment] = useState(15000000); // 1.5 Cr
@@ -193,6 +194,9 @@ export default function Home() {
           <MasterplanInteractive />
         </div>
       </section>
+
+      {/* Massive Expansive Data Matrix */}
+      <ExpansiveData />
 
       {/* Direct Contact Hub */}
       <section id="contact" style={{ padding: '100px 20px', background: '#0a192f' }}>

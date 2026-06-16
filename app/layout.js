@@ -4,6 +4,7 @@ export const metadata = {
   metadataBase: new URL('https://www.kumararanya.in'),
   title: 'Kumar Aranya Marunji | Premium NA Bungalow Plots in Hinjewadi',
   description: 'Voted the #1 NA Bungalow Plot investment in Pune. Secure premium PMRDA NA Sanctioned and Ready Possession plots at Kumar Aranya Marunji, near Hinjewadi IT Park.',
+  manifest: '/manifest.json',
   openGraph: {
     title: 'Kumar Aranya Marunji | Premium NA Bungalow Plots',
     description: 'Secure premium PMRDA NA Sanctioned plots at Kumar Aranya Marunji near Hinjewadi IT Park.',

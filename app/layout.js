@@ -1,4 +1,5 @@
 import './globals.css'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata = {
   metadataBase: new URL('https://www.kumararanya.in'),
@@ -38,7 +39,6 @@ export const metadata = {
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import SchemaMarkup from '../components/SchemaMarkup';
-import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 import { seoMatrix } from './seoMatrixData';
 import WhatsAppFAB from '../components/WhatsAppFAB';
@@ -71,6 +71,7 @@ export default function RootLayout({ children }) {
         {children}
         <WhatsAppFAB />
         <Web3Badge />
+        <GoogleAnalytics gaId="G-XXXXXXXXXX" />
         <footer style={{ background: '#0a192f', color: 'white', padding: '60px 20px 20px', borderTop: '1px solid #1a2a42' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <div style={{ marginBottom: '40px' }}>

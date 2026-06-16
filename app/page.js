@@ -150,12 +150,22 @@ export default function Home() {
     "email": "propsmartrealty@gmail.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Aranya, Near Hinjewadi IT Park",
-      "addressLocality": "Pune",
+      "streetAddress": "Kumar Aranya, Near Hinjewadi IT Park Phase 1",
+      "addressLocality": "Marunji, Pune",
       "addressRegion": "MH",
       "postalCode": "411057",
       "addressCountry": "IN"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "18.5987",
+      "longitude": "73.7380"
+    },
+    "hasMap": "https://maps.google.com/?cid=1234567890",
+    "sameAs": [
+      "https://www.facebook.com/kumarbuilders",
+      "https://www.instagram.com/kumarbuilders"
+    ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",

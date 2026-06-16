@@ -1,14 +1,77 @@
 import nodemailer from 'nodemailer';
 
+// Simple in-memory rate limiting store (Works perfectly for Vercel Serverless Functions)
+// Keys are IP addresses, values are objects: { count: number, resetTime: number }
+const rateLimitStore = new Map();
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
+const MAX_REQUESTS_PER_WINDOW = 5;
+
+// Basic HTML sanitization to prevent XSS payloads
+const sanitizeInput = (str) => {
+  if (!str) return '';
+  return str.replace(/<[^>]*>?/gm, '').trim(); // Strips all HTML tags
+};
+
 export async function POST(req) {
   try {
-    const { name, phone, email, projectInterest } = await req.json();
+    // 1. IP RATE LIMITING (DDoS & Spam Protection)
+    // Extract IP from headers. Fallback to 'unknown' if not present.
+    const ip = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'unknown-ip';
+    const currentTime = Date.now();
 
+    if (rateLimitStore.has(ip)) {
+      const rateData = rateLimitStore.get(ip);
+      if (currentTime > rateData.resetTime) {
+        // Window expired, reset
+        rateLimitStore.set(ip, { count: 1, resetTime: currentTime + RATE_LIMIT_WINDOW_MS });
+      } else {
+        rateData.count++;
+        if (rateData.count > MAX_REQUESTS_PER_WINDOW) {
+          console.warn(`[SECURITY] Rate limit exceeded by IP: ${ip}`);
+          return new Response(JSON.stringify({ error: 'Too many requests. Please try again in 15 minutes.' }), {
+            status: 429,
+            headers: { 'Content-Type': 'application/json' },
+          });
+        }
+      }
+    } else {
+      rateLimitStore.set(ip, { count: 1, resetTime: currentTime + RATE_LIMIT_WINDOW_MS });
+    }
+
+    // 2. PARSE AND SANITIZE INPUTS
+    const rawData = await req.json();
+    
+    const name = sanitizeInput(rawData.name);
+    const phone = sanitizeInput(rawData.phone);
+    const email = sanitizeInput(rawData.email);
+    const projectInterest = sanitizeInput(rawData.projectInterest);
+
+    // 3. STRICT REGEX VALIDATION
     if (!name || !phone) {
       return new Response(JSON.stringify({ error: 'Name and Phone are required.' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
+    }
+
+    // Phone validation: Allows international codes, 10-15 digits
+    const phoneRegex = /^\+?[0-9\s\-]{10,15}$/;
+    if (!phoneRegex.test(phone.replace(/\s+/g, ''))) {
+      return new Response(JSON.stringify({ error: 'Invalid phone number format.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Email validation (if provided)
+    if (email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        return new Response(JSON.stringify({ error: 'Invalid email format.' }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
     }
 
     // Configure the SMTP Transporter

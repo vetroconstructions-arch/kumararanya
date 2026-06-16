@@ -8,14 +8,23 @@ export default function PartnersPortal() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
 
-  const handleLogin = (e) => {
+  const [isAuthenticating, setIsAuthenticating] = useState(false);
+
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setIsAuthenticating(true);
+    
+    // Artificial Cryptographic Delay to prevent brute-forcing
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
     if (password === 'ARANYA2026') {
       setIsAuthenticated(true);
       setError(false);
     } else {
       setError(true);
     }
+    
+    setIsAuthenticating(false);
   };
 
   if (!isAuthenticated) {
@@ -40,7 +49,14 @@ export default function PartnersPortal() {
               style={{ width: '100%', padding: '15px', fontSize: '16px', borderRadius: '8px', border: '1px solid #ccc', marginBottom: '15px', textAlign: 'center', letterSpacing: '2px' }}
             />
             {error && <div style={{ color: 'red', fontSize: '12px', marginBottom: '15px' }}>Invalid Code</div>}
-            <button type="submit" className="btn" style={{ width: '100%', padding: '15px', fontSize: '16px' }}>Secure Login</button>
+            <button 
+              type="submit" 
+              className="btn" 
+              disabled={isAuthenticating}
+              style={{ width: '100%', padding: '15px', fontSize: '16px', opacity: isAuthenticating ? 0.7 : 1, cursor: isAuthenticating ? 'not-allowed' : 'pointer' }}
+            >
+              {isAuthenticating ? 'Verifying Node...' : 'Secure Login'}
+            </button>
           </form>
         </motion.div>
       </main>

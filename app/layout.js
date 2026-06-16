@@ -2,13 +2,13 @@ import './globals.css'
 
 export const metadata = {
   metadataBase: new URL('https://www.kumararanya.in'),
-  title: 'The Best NA Bungalow Plots Project in Hinjewadi & West Pune | Aranya',
-  description: 'Voted the #1 NA Bungalow Plot investment in Pune. Secure premium PMRDA NA Sanctioned and Ready Possession plots near Hinjewadi IT Park with 18% projected CAGR.',
+  title: 'Kumar Aranya Marunji | Premium NA Bungalow Plots in Hinjewadi',
+  description: 'Voted the #1 NA Bungalow Plot investment in Pune. Secure premium PMRDA NA Sanctioned and Ready Possession plots at Kumar Aranya Marunji, near Hinjewadi IT Park.',
   openGraph: {
-    title: 'The Best NA Bungalow Plots in West Pune | Aranya',
-    description: 'Voted the #1 NA Bungalow Plot investment in Pune. Secure premium PMRDA NA Sanctioned plots near Hinjewadi IT Park.',
+    title: 'Kumar Aranya Marunji | Premium NA Bungalow Plots',
+    description: 'Secure premium PMRDA NA Sanctioned plots at Kumar Aranya Marunji near Hinjewadi IT Park.',
     url: 'https://www.kumararanya.in',
-    siteName: 'Aranya by Kumar Builders',
+    siteName: 'Kumar Aranya Marunji',
     images: [
       {
         url: '/assets/images/scenic_villa.png',
@@ -22,7 +22,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Aranya NA Bungalow Plots | West Pune',
+    title: 'Kumar Aranya Marunji | NA Bungalow Plots',
     description: 'Secure premium PMRDA NA Sanctioned plots near Hinjewadi IT Park.',
     images: ['/assets/images/scenic_villa.png'],
   },

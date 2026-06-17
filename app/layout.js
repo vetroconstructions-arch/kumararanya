@@ -44,6 +44,7 @@ import { seoMatrix } from './seoMatrixData';
 import WhatsAppFAB from '../components/WhatsAppFAB';
 import ExitIntentPopup from '../components/ExitIntentPopup';
 import Web3Badge from '../components/Web3Badge';
+import GlobalEnquiryModal from '../components/GlobalEnquiryModal';
 
 export default function RootLayout({ children }) {
   return (
@@ -68,6 +69,7 @@ export default function RootLayout({ children }) {
         <SchemaMarkup />
         <Navbar />
         <ExitIntentPopup />
+        <GlobalEnquiryModal />
         {children}
         <WhatsAppFAB />
         <Web3Badge />

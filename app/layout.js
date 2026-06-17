@@ -3,14 +3,14 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata = {
   metadataBase: new URL('https://www.kumararanya.in'),
-  title: 'Kumar Aranya Marunji | Premium NA Bungalow Plots in Hinjewadi',
-  description: 'Voted the #1 NA Bungalow Plot investment in Pune. Secure premium PMRDA NA Sanctioned and Ready Possession plots at Kumar Aranya Marunji, near Hinjewadi IT Park.',
+  title: 'Kumar Aranya | Premium NA Bungalow Plots in Pune & Hinjewadi',
+  description: 'Dominating the Pune Real Estate Market: Voted the #1 NA Bungalow Plot investment in Pune. Secure premium PMRDA NA Sanctioned plots at Kumar Aranya Marunji, Hinjewadi.',
   manifest: '/manifest.json',
   openGraph: {
-    title: 'Kumar Aranya Marunji | Premium NA Bungalow Plots',
-    description: 'Secure premium PMRDA NA Sanctioned plots at Kumar Aranya Marunji near Hinjewadi IT Park.',
+    title: 'Kumar Aranya | Premium NA Bungalow Plots in Pune',
+    description: 'The definitive investment in the Pune Real Estate Market. Secure PMRDA NA Sanctioned plots at Kumar Aranya.',
     url: 'https://www.kumararanya.in',
-    siteName: 'Kumar Aranya Marunji',
+    siteName: 'Kumar Aranya Pune',
     images: [
       {
         url: '/assets/images/scenic_villa.png',

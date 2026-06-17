@@ -1,7 +1,7 @@
 export const generateSeoMatrix = () => {
   const intents = ["buy", "best", "invest-in", "pmrda-sanctioned", "ready-possession", "premium", "top"];
   const subjects = ["na-bungalow-plots", "residential-land", "gated-community-plots", "villa-plots"];
-  const geographies = ["pune", "west-pune", "hinjewadi", "marunji", "wakad", "baner", "bavdhan"];
+  const geographies = ["pune", "west-pune", "hinjewadi", "marunji", "wakad", "baner", "bavdhan", "kothrud", "kalyani-nagar", "kharadi", "viman-nagar", "aundh", "koregaon-park", "hadapsar"];
   
   const matrix = [];
 

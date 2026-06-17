@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import MasterplanInteractive from '../components/MasterplanInteractive';
 import ExpansiveData from '../components/ExpansiveData';
+import PuneMarketAnalysis from '../components/PuneMarketAnalysis';
 
 export default function Home() {
   const [initialInvestment, setInitialInvestment] = useState(14900000); // 1.49 Cr
@@ -204,6 +205,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <PuneMarketAnalysis />
 
       {/* ROI Calculator Section */}
       <section id="roi-calculator" style={{ padding: '100px 20px', background: 'white' }}>

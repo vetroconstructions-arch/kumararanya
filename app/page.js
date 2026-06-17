@@ -7,7 +7,7 @@ import ExpansiveData from '../components/ExpansiveData';
 import PuneMarketAnalysis from '../components/PuneMarketAnalysis';
 
 export default function Home() {
-  const [initialInvestment, setInitialInvestment] = useState(14900000); // 1.49 Cr
+  const [initialInvestment, setInitialInvestment] = useState(15680000); // 1.56 Cr
   const [years, setYears] = useState(5);
   
   // Enquiry Form State
@@ -106,7 +106,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",
     "name": "Aranya NA Bungalow Plots by Kumar Builders",
-    "description": "Premium 100% Title Clear PMRDA NA Sanctioned plots in West Pune, starting at ₹1.49 Cr.",
+    "description": "Premium 100% Title Clear PMRDA NA Sanctioned plots in West Pune, starting at ₹1.56 Cr.",
     "url": "https://www.kumararanya.in/",
     "image": "https://www.kumararanya.in/assets/images/scenic_villa.png",
     "offers": {

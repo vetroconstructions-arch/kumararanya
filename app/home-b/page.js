@@ -7,7 +7,7 @@ import ExpansiveData from '../../components/ExpansiveData';
 import PuneMarketAnalysis from '../../components/PuneMarketAnalysis';
 
 export default function Home() {
-  const [initialInvestment, setInitialInvestment] = useState(14900000); // 1.49 Cr
+  const [initialInvestment, setInitialInvestment] = useState(15680000); // 1.56 Cr
   const [years, setYears] = useState(5);
   
   // Enquiry Form State
@@ -106,7 +106,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",
     "name": "Aranya NA Bungalow Plots by Kumar Builders",
-    "description": "Premium 100% Title Clear PMRDA NA Sanctioned plots in West Pune, starting at ₹1.49 Cr.",
+    "description": "Premium 100% Title Clear PMRDA NA Sanctioned plots in West Pune, starting at ₹1.56 Cr.",
     "url": "https://www.kumararanya.in/",
     "image": "https://www.kumararanya.in/assets/images/scenic_villa.png",
     "offers": {
@@ -185,7 +185,7 @@ export default function Home() {
             </div>
             <h1 style={{ fontSize: '64px', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1', color: '#0a192f' }}>Data-Driven Real Estate:<br/>Kumar Aranya Marunji</h1>
             <p style={{ fontSize: '24px', margin: '0 auto 40px', color: '#555' }}>
-              Historically, Hinjewadi plots have yielded an 18% CAGR.<br/>Secure a 2450 sq.ft plot today and build your generational asset.
+              Historically, Hinjewadi plots have yielded an 18% CAGR.<br/>Secure a 2240 sq.ft plot today and build your generational asset.
             </p>
             <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
               <Link href="/configurator" className="btn" style={{ padding: '20px 40px', fontSize: '18px', background: '#0a192f', color: 'white' }}>Calculate ROI & Build Villa</Link>

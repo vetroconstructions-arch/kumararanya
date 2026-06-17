@@ -91,7 +91,7 @@ export default async function KeywordPage({ params }) {
 
       <footer style={{ padding: '80px 20px', textAlign: 'center', background: '#050d1a', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <h2 style={{ fontSize: '32px', color: 'white', marginBottom: '20px' }}>Ready to Invest in {data.geo.replace(/\b\w/g, l => l.toUpperCase())}?</h2>
-        <p style={{ color: '#aaa', marginBottom: '40px' }}>Plots ranging from 2,240 sq.ft to 7,600 sq.ft. Starting at ₹1.49 Cr.</p>
+        <p style={{ color: '#aaa', marginBottom: '40px' }}>Plots ranging from 2,240 sq.ft to 7,600 sq.ft. Starting at ₹1.56 Cr.</p>
         <Link href="/#contact" style={{ padding: '15px 40px', background: 'transparent', border: '2px solid var(--secondary)', color: 'var(--secondary)', textDecoration: 'none', fontSize: '18px', fontWeight: 'bold', borderRadius: '4px' }}>
           Contact Sales Team
         </Link>

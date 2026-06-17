@@ -5,7 +5,7 @@ export default function ExpansiveData() {
   const [openFaq, setOpenFaq] = useState(0);
 
   const faqs = [
-    { q: "What is the price of NA plots at Aranya?", a: "Premium NA bungalow plots at Aranya start from ₹1.49 Crore onwards. Pricing varies based on exact plot size, layout orientation, and proximity to the biodiversity park." },
+    { q: "What is the price of NA plots at Aranya?", a: "Premium NA bungalow plots at Aranya start from ₹1.56 Crore onwards. Pricing varies based on exact plot size, layout orientation, and proximity to the biodiversity park." },
     { q: "Is Aranya within PMC limits?", a: "Yes, the project is strategically located with seamless connectivity to PMC infrastructure, ensuring rapid property value appreciation and excellent civic amenities." },
     { q: "What plot sizes are available?", a: "We offer tailored configurations: 2,240 sq.ft compact villa plots, 5,000 sq.ft premium villa plots, and 7,600 sq.ft ultra-premium estate plots." },
     { q: "Can I build a G+2 villa?", a: "Absolutely. All plots come with 100% clear NA (Non-Agricultural) titles, 1.5 FSI, and approved G+2 building permissions." },

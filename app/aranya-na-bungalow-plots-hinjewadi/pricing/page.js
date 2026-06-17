@@ -4,7 +4,7 @@ import PlotAvailability from '../../../components/PlotAvailability';
 
 export const metadata = {
   title: 'Pricing & Dimensions | Aranya NA Bungalow Plots in Hinjewadi',
-  description: 'Explore the pricing, dimensions, and investment potential of Aranya NA Bungalow Plots in Hinjewadi. Starting from ₹1.49 Cr for 2450 sq.ft to 7600 sq.ft.',
+  description: 'Explore the pricing, dimensions, and investment potential of Aranya NA Bungalow Plots in Hinjewadi. Starting from ₹1.56 Cr for 2240 sq.ft to 7600 sq.ft.',
   alternates: {
     canonical: 'https://www.kumararanya.in/aranya-na-bungalow-plots-hinjewadi/pricing'
   }
@@ -27,8 +27,8 @@ export default function PricingPage() {
           
           <div style={{ background: 'white', padding: '40px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', borderTop: '4px solid var(--secondary)' }}>
             <h3 style={{ fontSize: '24px', color: 'var(--primary)', marginBottom: '10px' }}>Compact Villas</h3>
-            <div style={{ fontSize: '36px', fontWeight: 'bold', color: 'var(--secondary)', marginBottom: '20px' }}>2,450 sq.ft</div>
-            <p style={{ fontSize: '18px', color: '#666', marginBottom: '30px' }}>Starting at ₹1.49 Cr*</p>
+            <div style={{ fontSize: '36px', fontWeight: 'bold', color: 'var(--secondary)', marginBottom: '20px' }}>2,240 sq.ft</div>
+            <p style={{ fontSize: '18px', color: '#666', marginBottom: '30px' }}>Starting at ₹1.56 Cr*</p>
             <ul style={{ listStyle: 'none', padding: 0, marginBottom: '40px', color: '#444' }}>
               <li style={{ marginBottom: '10px' }}>✓ Ideal for 4 BHK G+2 Villa</li>
               <li style={{ marginBottom: '10px' }}>✓ 1.5 FSI Sanctioned</li>
@@ -41,7 +41,7 @@ export default function PricingPage() {
             <div style={{ background: 'var(--primary)', color: 'white', display: 'inline-block', padding: '5px 15px', borderRadius: '20px', fontSize: '12px', fontWeight: 'bold', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '1px' }}>Most Popular</div>
             <h3 style={{ fontSize: '24px', color: 'var(--primary)', marginBottom: '10px' }}>Premium Estates</h3>
             <div style={{ fontSize: '36px', fontWeight: 'bold', color: 'var(--secondary)', marginBottom: '20px' }}>5,000 sq.ft</div>
-            <p style={{ fontSize: '18px', color: '#666', marginBottom: '30px' }}>Starting at ₹3.10 Cr*</p>
+            <p style={{ fontSize: '18px', color: '#666', marginBottom: '30px' }}>Starting at ₹3.50 Cr*</p>
             <ul style={{ listStyle: 'none', padding: 0, marginBottom: '40px', color: '#444' }}>
               <li style={{ marginBottom: '10px' }}>✓ Ideal for 5 BHK Mansion</li>
               <li style={{ marginBottom: '10px' }}>✓ Space for Private Pool</li>
@@ -53,7 +53,7 @@ export default function PricingPage() {
           <div style={{ background: 'white', padding: '40px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', borderTop: '4px solid var(--secondary)' }}>
             <h3 style={{ fontSize: '24px', color: 'var(--primary)', marginBottom: '10px' }}>Signature Estates</h3>
             <div style={{ fontSize: '36px', fontWeight: 'bold', color: 'var(--secondary)', marginBottom: '20px' }}>7,600 sq.ft</div>
-            <p style={{ fontSize: '18px', color: '#666', marginBottom: '30px' }}>Starting at ₹4.75 Cr*</p>
+            <p style={{ fontSize: '18px', color: '#666', marginBottom: '30px' }}>Starting at ₹5.32 Cr*</p>
             <ul style={{ listStyle: 'none', padding: 0, marginBottom: '40px', color: '#444' }}>
               <li style={{ marginBottom: '10px' }}>✓ Grand Frontage</li>
               <li style={{ marginBottom: '10px' }}>✓ Unobstructed Nature Views</li>

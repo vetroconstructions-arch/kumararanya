@@ -13,7 +13,7 @@ export default function PlotAvailability() {
       const isCorner = i % 8 === 0 || i % 8 === 7;
       let status = 'AVAILABLE';
       let type = 'Compact Villa';
-      let size = '2,450 sq.ft';
+      let size = '2,240 sq.ft';
       
       // Determine size
       if (i > 30) { type = 'Premium Estate'; size = '5,000 sq.ft'; }

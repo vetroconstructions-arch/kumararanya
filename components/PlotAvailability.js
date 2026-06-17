@@ -1,15 +1,10 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function PlotAvailability() {
-  const [plots, setPlots] = useState([]);
-  const [selectedPlot, setSelectedPlot] = useState(null);
-  const [paymentStatus, setPaymentStatus] = useState('idle'); // idle, processing, success
-
-  useEffect(() => {
-    // Generate 48 interactive plots algorithmically
-    const generated = Array.from({ length: 48 }).map((_, i) => {
+  const [plots, setPlots] = useState(() => {
+    return Array.from({ length: 48 }).map((_, i) => {
       const isCorner = i % 8 === 0 || i % 8 === 7;
       let status = 'AVAILABLE';
       let type = 'Compact Villa';
@@ -31,8 +26,9 @@ export default function PlotAvailability() {
         isCorner
       };
     });
-    setPlots(generated);
-  }, []);
+  });
+  const [selectedPlot, setSelectedPlot] = useState(null);
+  const [paymentStatus, setPaymentStatus] = useState('idle'); // idle, processing, success
 
   const getStatusColor = (status) => {
     switch (status) {

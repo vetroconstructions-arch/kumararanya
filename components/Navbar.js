@@ -83,7 +83,7 @@ export default function Navbar() {
           <div className="dropdown" style={{ position: 'relative' }}>
             <span style={{ color: 'white', cursor: 'pointer', fontSize: '12px', fontWeight: '600', letterSpacing: '1.5px' }} className="nav-link">RESOURCES ▾</span>
             <div className="dropdown-content">
-              <Link href="/configurator">"Build Your Villa" Sandbox</Link>
+              <Link href="/configurator">&quot;Build Your Villa&quot; Sandbox</Link>
               <Link href="/blog">Real Estate Insights (Blog)</Link>
               <Link href="/nri/dubai">NRI Investment Portal</Link>
               <Link href="/partners">Channel Partner Login</Link>

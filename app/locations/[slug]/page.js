@@ -54,7 +54,7 @@ export default async function LocationPage({ params }) {
         <div style={{ marginBottom: '60px', textAlign: 'center' }}>
           <h2 style={{ color: 'var(--primary)', fontSize: '32px', marginBottom: '20px' }}>The Financial Reality Check</h2>
           <p style={{ fontSize: '20px', lineHeight: '1.8', color: '#444', fontStyle: 'italic', background: '#fafafa', padding: '30px', borderLeft: '4px solid var(--secondary)' }}>
-            "{data.hook}"
+            &quot;{data.hook}&quot;
           </p>
         </div>
 

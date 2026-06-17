@@ -1,9 +1,9 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 export default function ExitIntentPopup() {
   const [isVisible, setIsVisible] = useState(false);
-  const [hasTriggered, setHasTriggered] = useState(false);
+  const hasTriggeredRef = useRef(false);
   const [formData, setFormData] = useState({ phone: '' });
   const [status, setStatus] = useState('idle');
 
@@ -11,14 +11,14 @@ export default function ExitIntentPopup() {
     // Check if user already saw this in previous sessions
     if (typeof window !== 'undefined') {
       const seen = localStorage.getItem('exitIntentSeen');
-      if (seen) setHasTriggered(true);
+      if (seen) hasTriggeredRef.current = true;
     }
 
     const handleMouseLeave = (e) => {
       // If mouse crosses top of browser window and hasn't triggered yet
-      if (e.clientY < 50 && !hasTriggered) {
+      if (e.clientY < 50 && !hasTriggeredRef.current) {
         setIsVisible(true);
-        setHasTriggered(true);
+        hasTriggeredRef.current = true;
         if (typeof window !== 'undefined') {
           localStorage.setItem('exitIntentSeen', 'true');
         }
@@ -27,7 +27,7 @@ export default function ExitIntentPopup() {
 
     document.addEventListener('mouseleave', handleMouseLeave);
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
-  }, [hasTriggered]);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,7 +79,7 @@ export default function ExitIntentPopup() {
           }}
         >×</button>
         
-        <h2 style={{ fontSize: '28px', color: 'var(--primary)', marginBottom: '15px', textAlign: 'center' }}>Wait! Don't Leave Empty Handed.</h2>
+        <h2 style={{ fontSize: '28px', color: 'var(--primary)', marginBottom: '15px', textAlign: 'center' }}>Wait! Don&apos;t Leave Empty Handed.</h2>
         <p style={{ fontSize: '16px', color: '#555', marginBottom: '30px', textAlign: 'center', lineHeight: '1.6' }}>
           Get the highly exclusive <strong>Aranya Masterplan & Pricing Brochure</strong> delivered instantly to your WhatsApp.
         </p>

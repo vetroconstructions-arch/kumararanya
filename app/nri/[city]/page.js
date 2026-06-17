@@ -42,7 +42,7 @@ export default async function NRIPage({ params }) {
             Exclusive NRI Investment Portal — {data.city}
           </div>
           <h1 style={{ color: 'white', fontSize: '56px', marginBottom: '20px', lineHeight: '1.1' }}>
-            Diversify Your <span style={{ color: 'var(--secondary)' }}>{data.currency}</span> into Pune's Ultimate Asset
+            Diversify Your <span style={{ color: 'var(--secondary)' }}>{data.currency}</span> into Pune&apos;s Ultimate Asset
           </h1>
           <p style={{ color: '#ccc', fontSize: '22px', fontWeight: '300', lineHeight: '1.6', marginBottom: '40px' }}>
             {data.hook}

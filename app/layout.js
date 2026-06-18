@@ -1,5 +1,5 @@
 import './globals.css'
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 
 export const metadata = {
   metadataBase: new URL('https://www.kumararanya.in'),
@@ -66,6 +66,7 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
       <body>
+        <GoogleTagManager gtmId="GTM-XXXXXXX" />
         <SchemaMarkup />
         <Navbar />
         <ExitIntentPopup />

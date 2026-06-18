@@ -18,7 +18,7 @@ export const config = {
 // For enterprise rate limiting, Redis (Upstash) is recommended.
 const rateLimitMap = new Map();
 
-export function middleware(request) {
+export function proxy(request) {
   const url = request.nextUrl.clone();
   
   // 1. RATE LIMITING LOGIC (Protects all routes, specifically APIs and dynamic pages)

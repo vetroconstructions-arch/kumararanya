@@ -45,6 +45,7 @@ import WhatsAppFAB from '../components/WhatsAppFAB';
 import ExitIntentPopup from '../components/ExitIntentPopup';
 import Web3Badge from '../components/Web3Badge';
 import GlobalEnquiryModal from '../components/GlobalEnquiryModal';
+import Providers from '../components/Providers';
 
 export default function RootLayout({ children }) {
   return (
@@ -67,14 +68,15 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <GoogleTagManager gtmId="GTM-XXXXXXX" />
-        <SchemaMarkup />
-        <Navbar />
-        <ExitIntentPopup />
-        <GlobalEnquiryModal />
-        {children}
-        <WhatsAppFAB />
-        <Web3Badge />
-        <GoogleAnalytics gaId="G-XXXXXXXXXX" />
+        <Providers>
+          <SchemaMarkup />
+          <Navbar />
+          <ExitIntentPopup />
+          <GlobalEnquiryModal />
+          {children}
+          <WhatsAppFAB />
+          <Web3Badge />
+        </Providers>
         <footer style={{ background: '#0a192f', color: 'white', padding: '60px 20px 20px', borderTop: '1px solid #1a2a42' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <div style={{ marginBottom: '40px' }}>

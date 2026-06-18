@@ -45,6 +45,24 @@ export async function POST(req) {
     const phone = sanitizeInput(rawData.phone);
     const email = sanitizeInput(rawData.email);
     const projectInterest = sanitizeInput(rawData.projectInterest);
+    const recaptchaToken = rawData.recaptchaToken;
+
+    // Optional reCAPTCHA Server Verification
+    // (We only block if token is provided and verification fails to avoid breaking other endpoints)
+    if (recaptchaToken) {
+      const secretKey = process.env.RECAPTCHA_SECRET_KEY || "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"; // Google's testing secret
+      const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${recaptchaToken}`;
+      const recaptchaRes = await fetch(verifyUrl, { method: 'POST' });
+      const recaptchaData = await recaptchaRes.json();
+      
+      if (!recaptchaData.success || recaptchaData.score < 0.5) {
+        console.warn(`[SECURITY] Bot blocked by reCAPTCHA v3. Score: ${recaptchaData.score}`);
+        return new Response(JSON.stringify({ error: 'Bot detected by reCAPTCHA.' }), {
+          status: 403,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+    }
 
     // 3. STRICT REGEX VALIDATION
     if (!name || !phone) {

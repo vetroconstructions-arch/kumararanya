@@ -23,6 +23,16 @@ export default function WhatsAppFAB() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => {
+        if (typeof window !== 'undefined') {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'whatsapp_click',
+            form_type: 'fab_button',
+            project: 'Aranya'
+          });
+        }
+      }}
       style={{
         position: 'fixed',
         bottom: '30px',

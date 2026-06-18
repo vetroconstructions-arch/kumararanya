@@ -1,8 +1,10 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 export default function GlobalEnquiryModal() {
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
   const [formStatus, setFormStatus] = useState('idle'); // idle, loading, success, error
@@ -28,16 +30,32 @@ export default function GlobalEnquiryModal() {
     e.preventDefault();
     setFormStatus('loading');
 
+    let token = '';
+    if (executeRecaptcha) {
+      token = await executeRecaptcha('enquiry_submit');
+    }
+
     try {
       const res = await fetch('/api/enquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, projectInterest: 'Aranya Global Modal Enquiry' }),
+        body: JSON.stringify({ ...formData, projectInterest: 'Aranya Global Modal Enquiry', recaptchaToken: token }),
       });
 
       if (res.ok) {
         setFormStatus('success');
         sessionStorage.setItem('aranya_enquiry_modal_seen', 'true');
+        
+        // GTM Event Push
+        if (typeof window !== 'undefined') {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'lead_submitted',
+            form_type: 'global_modal',
+            project: 'Aranya'
+          });
+        }
+        
         setTimeout(() => setIsOpen(false), 3000);
       } else {
         setFormStatus('error');

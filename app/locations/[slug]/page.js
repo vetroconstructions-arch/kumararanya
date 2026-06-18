@@ -73,6 +73,25 @@ export default async function LocationPage({ params }) {
           </div>
         </div>
 
+        {/* Google Maps Embed Integration */}
+        <div style={{ marginBottom: '60px' }}>
+          <h3 style={{ fontSize: '24px', color: 'var(--primary)', marginBottom: '20px', textAlign: 'center' }}>Dynamic Route from {data.name}</h3>
+          <div style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
+            <iframe 
+              width="100%" 
+              height="400" 
+              style={{ border: 0 }} 
+              loading="lazy" 
+              allowFullScreen 
+              referrerPolicy="no-referrer-when-downgrade" 
+              src={`https://www.google.com/maps/embed/v1/directions?key=YOUR_GOOGLE_MAPS_API_KEY&origin=${encodeURIComponent(data.name + ', Pune')}&destination=Kumar+Aranya,+Marunji,+Hinjewadi,+Pune`}
+            ></iframe>
+          </div>
+          <p style={{ textAlign: 'center', fontSize: '14px', color: '#888', marginTop: '10px' }}>
+            *Estimated drive time: {data.driveTime}. Avoid {data.name} traffic by investing in Marunji.
+          </p>
+        </div>
+
         <div style={{ textAlign: 'center', marginTop: '60px' }}>
           <h3 style={{ fontSize: '28px', color: 'var(--primary)', marginBottom: '30px' }}>Ready to bypass {data.name} congestion?</h3>
           <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>

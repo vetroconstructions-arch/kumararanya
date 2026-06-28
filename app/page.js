@@ -193,10 +193,10 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <div style={{ fontSize: '14px', letterSpacing: '4px', textTransform: 'uppercase', marginBottom: '20px', color: 'var(--secondary)', fontWeight: 'bold' }}>The Ultimate Legacy Investment</div>
-            <h1 style={{ fontSize: '64px', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1', textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>KUMAR ARANYA <br/>MARUNJI PLOTS</h1>
+            <div style={{ fontSize: '14px', letterSpacing: '4px', textTransform: 'uppercase', marginBottom: '20px', color: 'var(--secondary)', fontWeight: 'bold' }}>PMRDA Sanctioned Premium Investment</div>
+            <h1 style={{ fontSize: '56px', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1', textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>ARANYA NA BUNGALOW PLOTS <br/>IN HINJEWADI</h1>
             <p style={{ fontSize: '24px', maxWidth: '800px', margin: '0 auto 40px', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
-              A 25+ Acre Super-Premium Gated Community in Marunji<br/>Just 15 minutes from Hinjewadi IT Park.
+              A 25+ Acre Super-Premium Gated Community in Marunji<br/>Dominating the Pune Real Estate Market.
             </p>
             <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
               <Link href="/aranya-na-bungalow-plots-hinjewadi/pricing" className="btn" style={{ padding: '20px 40px', fontSize: '18px', boxShadow: '0 10px 30px rgba(212, 175, 55, 0.3)' }}>View Pricing & Details</Link>

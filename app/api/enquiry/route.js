@@ -1,4 +1,6 @@
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Simple in-memory rate limiting store (Works perfectly for Vercel Serverless Functions)
 // Keys are IP addresses, values are objects: { count: number, resetTime: number }
@@ -92,37 +94,25 @@ export async function POST(req) {
       }
     }
 
-    // Configure the SMTP Transporter
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-    });
-
-    // Email Data
-    const mailOptions = {
-      from: `"Aranya Lead Capture" <${process.env.EMAIL_USER}>`,
-      to: 'propsmartrealty@gmail.com', // Direct destination
-      subject: `New Lead: ${name} - Aranya NA Bungalow Plots`,
-      text: `
-        New Enquiry from Aranya NA Plots Website:
-        
-        Name: ${name}
-        Phone: ${phone}
-        Email: ${email || 'Not Provided'}
-        Project Interest: ${projectInterest || 'Aranya NA Bungalow Plots'}
-        
-        This lead was securely generated via the Aranya First-Party Automation Engine.
-      `,
-    };
-
-    // Send the email (fallback)
+    // 4. ENTERPRISE EMAIL DELIVERY (RESEND API)
     try {
-      await transporter.sendMail(mailOptions);
-    } catch(emailErr) {
-      console.log("Email failed, but continuing to webhook", emailErr);
+      const data = await resend.emails.send({
+        from: 'Aranya Leads <leads@kumararanya.in>', // Note: Domain must be verified in Resend
+        to: ['propsmartrealty@gmail.com'],
+        subject: `New Lead: ${name} - Aranya NA Bungalow Plots`,
+        html: `
+          <h2>New Enquiry from Aranya NA Plots Website</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>Email:</strong> ${email || 'Not Provided'}</p>
+          <p><strong>Project Interest:</strong> ${projectInterest || 'Aranya NA Bungalow Plots'}</p>
+          <hr/>
+          <p><small>This lead was securely generated via the Aranya First-Party Automation Engine.</small></p>
+        `
+      });
+      console.log('Resend Delivery Success:', data);
+    } catch (emailErr) {
+      console.error('Resend Delivery Failed:', emailErr);
     }
 
     // -------------------------------------------------------------

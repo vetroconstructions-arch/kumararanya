@@ -1,5 +1,6 @@
 import { locationsData } from '../../locationsData';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export async function generateStaticParams() {
   return Object.keys(locationsData).map((slug) => ({
@@ -34,8 +35,15 @@ export default async function LocationPage({ params }) {
     <main style={{ minHeight: '100vh', background: '#f4f4f4', paddingBottom: '100px', fontFamily: 'Inter, sans-serif' }}>
       
       {/* Cinematic Hero */}
-      <div style={{ height: '60vh', background: `linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url('/assets/images/clubhouse.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '900px' }}>
+      <div style={{ height: '60vh', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', textAlign: 'center', overflow: 'hidden' }}>
+        <Image 
+          src="/assets/images/clubhouse.jpg" 
+          alt={`Aranya PMRDA Plots near ${data.name}`} 
+          fill 
+          priority 
+          style={{ objectFit: 'cover', filter: 'brightness(0.4)' }} 
+        />
+        <div style={{ maxWidth: '900px', position: 'relative', zIndex: 10 }}>
           <div style={{ display: 'inline-block', padding: '8px 16px', border: '1px solid var(--secondary)', color: 'var(--secondary)', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '14px', marginBottom: '30px' }}>
             {data.driveTime} from {data.name}
           </div>

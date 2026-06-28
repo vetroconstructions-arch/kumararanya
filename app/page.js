@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import MasterplanInteractive from '../components/MasterplanInteractive';
 import ExpansiveData from '../components/ExpansiveData';
@@ -185,7 +186,13 @@ export default function Home() {
 
       {/* Hero Section */}
       <section style={{ height: '100vh', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundImage: 'url(/assets/images/scenic_villa.png)', backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.6)' }} />
+        <Image 
+          src="/assets/images/scenic_villa.png" 
+          alt="Aranya NA Bungalow Plots in Hinjewadi" 
+          fill 
+          priority 
+          style={{ objectFit: 'cover', filter: 'brightness(0.6)' }} 
+        />
         
         <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '0 20px' }}>
           <motion.div 

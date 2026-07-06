@@ -1,39 +1,46 @@
 export const generateSeoMatrix = () => {
-  const intents = ["buy", "best", "invest-in", "pmrda-sanctioned", "ready-possession", "premium", "top"];
-  const subjects = ["na-bungalow-plots", "residential-land", "gated-community-plots", "villa-plots"];
-  const geographies = ["pune", "west-pune", "hinjewadi", "marunji", "wakad", "baner", "bavdhan", "kothrud", "kalyani-nagar", "kharadi", "viman-nagar", "aundh", "koregaon-park", "hadapsar"];
+  // Hyper-Focused Marunji & Hinjewadi Keywords
+  const intents = ["buy", "invest-in", "price-of", "review-of", "location-of", "pmrda-approved", "best", "premium"];
+  const subjects = ["na-bungalow-plots", "plotting-projects", "residential-land", "villa-plots"];
+  const geographies = ["hinjewadi", "marunji", "hinjewadi-phase-1", "hinjewadi-marunji-link-road", "pune-it-park"];
+  const brands = ["aranya", "kumar-aranya", "kumar-builders-aranya"];
   
   const matrix = [];
 
-  // Algorithmic Cross-Multiplication
+  // Algorithmic Cross-Multiplication (Intent + Brand + Subject + Geo)
   intents.forEach(intent => {
-    subjects.forEach(subject => {
-      geographies.forEach(geo => {
-        // e.g. buy-na-bungalow-plots-in-hinjewadi
-        const slug = `${intent}-${subject}-in-${geo}`;
-        
-        // Convert slug to readable Title
-        const title = slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-        
-        matrix.push({
-          slug,
-          title,
-          intent: intent.replace(/-/g, ' '),
-          subject: subject.replace(/-/g, ' '),
-          geo: geo.replace(/-/g, ' '),
-          hook: `Looking to ${intent.replace(/-/g, ' ')} ${subject.replace(/-/g, ' ')} in ${geo.replace(/-/g, ' ')}? Aranya by Kumar Builders offers the ultimate 18% CAGR investment.`
+    brands.forEach(brand => {
+      subjects.forEach(subject => {
+        geographies.forEach(geo => {
+          // e.g. buy-kumar-aranya-na-bungalow-plots-in-hinjewadi
+          const slug = `${intent}-${brand}-${subject}-in-${geo}`;
+          
+          // Convert slug to readable Title
+          const title = slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+          
+          matrix.push({
+            slug,
+            title,
+            intent: intent.replace(/-/g, ' '),
+            brand: brand.replace(/-/g, ' '),
+            subject: subject.replace(/-/g, ' '),
+            geo: geo.replace(/-/g, ' '),
+            hook: `Searching for ${subject.replace(/-/g, ' ')} in ${geo.replace(/-/g, ' ')}? Discover why ${brand.replace(/-/g, ' ')} is the ultimate ${intent.replace(/-/g, ' ')} opportunity.`
+          });
         });
       });
     });
   });
 
-  // Add highly specific Pune Real Estate Market long-tail keywords
+  // Add highly specific Long-Tail exact match queries for Marunji/Hinjewadi
   const marketKeywords = [
-    "pune-real-estate-market-trends-2026",
-    "land-vs-flat-investment-in-pune",
-    "hinjewadi-plot-appreciation-rates",
-    "pmrda-na-plot-guidelines-pune",
-    "why-invest-in-marunji-real-estate"
+    "aranya-marunji-plotting",
+    "aranya-marunji-plotting-price",
+    "aranya-marunji-plotting-reviews",
+    "na-bungalow-in-hinjewadi",
+    "na-bungalow-plots-hinjewadi-pune",
+    "kumar-aranya-hinjewadi-marunji-link-road",
+    "pmrda-sanctioned-plots-marunji-hinjewadi"
   ];
 
   marketKeywords.forEach(slug => {
@@ -41,10 +48,11 @@ export const generateSeoMatrix = () => {
     matrix.push({
       slug,
       title,
-      intent: "research",
-      subject: "real estate market",
-      geo: "pune",
-      hook: `Discover the latest data on ${title.toLowerCase()}. Learn why smart money is shifting to Aranya NA Bungalow Plots.`
+      intent: "exact-match",
+      brand: "Aranya",
+      subject: "Bungalow Plots",
+      geo: "Hinjewadi Marunji",
+      hook: `Exclusive access to ${title}. Secure your 100% Title Clear PMRDA NA Sanctioned plot today.`
     });
   });
 

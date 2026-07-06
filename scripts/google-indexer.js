@@ -6,6 +6,9 @@ const { google } = require('googleapis');
 // WARNING: DO NOT COMMIT credentials.json TO GITHUB!
 const KEY_FILE = path.join(__dirname, '../credentials.json');
 
+// Import the SEO Matrix to push the hyper-focused pages
+const { seoMatrix } = require('../app/seoMatrixData.js');
+
 // 2. Load the Google Indexing API
 async function indexUrls() {
   if (!fs.existsSync(KEY_FILE)) {
@@ -27,18 +30,18 @@ async function indexUrls() {
     console.log('✅ Authenticated successfully.');
 
     // 3. Extract URLs from the dynamically generated sitemap
-    // In production, you would fetch('https://www.kumararanya.in/sitemap.xml') and parse it.
-    // For this script, we'll ping a critical batch of URLs directly.
-    const urlsToPush = [
+    const baseUrls = [
       'https://www.kumararanya.in/',
       'https://www.kumararanya.in/aranya-na-bungalow-plots-hinjewadi/pricing',
-      'https://www.kumararanya.in/aranya-na-bungalow-plots-hinjewadi/masterplan',
-      'https://www.kumararanya.in/blog/kumar-aranya-hinjewadi-bungalow-plots',
-      'https://www.kumararanya.in/blog/pune-real-estate-na-bungalow-plots',
-      'https://www.kumararanya.in/blog/hinjewadi-marunji-investment-corridor'
+      'https://www.kumararanya.in/blog/kumar-aranya-hinjewadi-bungalow-plots'
     ];
 
-    console.log(`🚀 Pushing ${urlsToPush.length} URLs to Google Indexing API...`);
+    // Grab the first 150 hyper-focused Marunji/Hinjewadi programmatic SEO URLs
+    const seoUrls = seoMatrix.slice(0, 150).map(item => `https://www.kumararanya.in/search/${item.slug}`);
+    
+    const urlsToPush = [...baseUrls, ...seoUrls];
+
+    console.log(`🚀 Pushing ${urlsToPush.length} Hyper-Focused URLs to Google Indexing API...`);
 
     // 4. Batch push URLs to Google Indexing API
     for (const url of urlsToPush) {

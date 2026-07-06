@@ -16,8 +16,8 @@ export async function generateMetadata({ params }) {
   if (!data) return { title: 'Not Found' };
   
   return {
-    title: `${data.title} | Aranya PMRDA NA Plots`,
-    description: data.hook,
+    title: `${data.title} | Kumar Aranya Marunji Plotting`,
+    description: `${data.hook} Invest in premium NA Bungalow Plots near Hinjewadi IT Park.`,
     alternates: {
       canonical: `https://www.kumararanya.in/` // SEO Rescue: Point back to root to prevent duplicate penalty
     },
@@ -62,6 +62,9 @@ export default async function KeywordPage({ params }) {
         <h1 style={{ fontSize: '48px', fontWeight: 'bold', color: 'var(--secondary)', marginBottom: '20px', fontFamily: 'Cinzel, serif', textTransform: 'capitalize' }}>
           {data.title}
         </h1>
+        <h2 style={{ fontSize: '24px', fontWeight: 'normal', color: 'white', marginBottom: '10px' }}>
+          Premium NA Bungalow Plots in Hinjewadi - Marunji
+        </h2>
         <p style={{ fontSize: '20px', maxWidth: '800px', margin: '0 auto 40px', color: '#ccc', lineHeight: '1.8' }}>
           {data.hook}
         </p>
@@ -72,7 +75,7 @@ export default async function KeywordPage({ params }) {
       </header>
 
       <section style={{ padding: '80px 20px', maxWidth: '1000px', margin: '0 auto' }}>
-        <h2 style={{ fontSize: '32px', color: 'white', marginBottom: '30px' }}>Why Aranya for {data.subject.replace(/\b\w/g, l => l.toUpperCase())}?</h2>
+        <h2 style={{ fontSize: '32px', color: 'white', marginBottom: '30px' }}>Why {data.brand ? data.brand.replace(/\b\w/g, l => l.toUpperCase()) : 'Aranya'} for {data.subject.replace(/\b\w/g, l => l.toUpperCase())}?</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
           <div style={{ background: 'rgba(255,255,255,0.05)', padding: '30px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
             <h3 style={{ color: 'var(--secondary)', marginBottom: '15px', fontSize: '20px' }}>1. 100% Title Clear & PMRDA Sanctioned</h3>
@@ -90,7 +93,7 @@ export default async function KeywordPage({ params }) {
       </section>
 
       <footer style={{ padding: '80px 20px', textAlign: 'center', background: '#050d1a', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-        <h2 style={{ fontSize: '32px', color: 'white', marginBottom: '20px' }}>Ready to Invest in {data.geo.replace(/\b\w/g, l => l.toUpperCase())}?</h2>
+        <h2 style={{ fontSize: '32px', color: 'white', marginBottom: '20px' }}>Ready to Invest in {data.geo.replace(/\b\w/g, l => l.toUpperCase())} Real Estate?</h2>
         <p style={{ color: '#aaa', marginBottom: '40px' }}>Plots ranging from 2,240 sq.ft to 7,600 sq.ft. Starting at ₹1.56 Cr.</p>
         <Link href="/#contact" style={{ padding: '15px 40px', background: 'transparent', border: '2px solid var(--secondary)', color: 'var(--secondary)', textDecoration: 'none', fontSize: '18px', fontWeight: 'bold', borderRadius: '4px' }}>
           Contact Sales Team

@@ -12,7 +12,7 @@ export default function PuneMarketAnalysis() {
           style={{ textAlign: 'center', marginBottom: '60px' }}
         >
           <h2 style={{ fontSize: '14px', letterSpacing: '3px', color: 'var(--secondary)', textTransform: 'uppercase', marginBottom: '15px' }}>Pune Real Estate Market 2026</h2>
-          <h3 style={{ fontSize: '42px', fontWeight: '900', lineHeight: '1.2' }}>Why Bungalow Plots Are Outperforming <br/>Luxury Flats in Pune</h3>
+          <h3 style={{ fontSize: '42px', fontWeight: '900', lineHeight: '1.2' }}>Why NA Bungalow Plots Are Outperforming <br/>Luxury Flats in Pune</h3>
         </motion.div>
 
         <motion.div 

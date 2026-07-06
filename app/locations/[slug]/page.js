@@ -14,8 +14,8 @@ export async function generateMetadata({ params }) {
   if(!data) return { title: 'Not Found' };
   
   return {
-    title: `Best NA Bungalow Plots near ${data.name} | Aranya by Kumar Builders`,
-    description: `Looking for plots or apartments in ${data.name}? ${data.hook} Aranya offers premium 100% Title Clear PMRDA NA Sanctioned & Ready Possession plots.`,
+    title: `NA Bungalow Plots near ${data.name} | Kumar Aranya Hinjewadi`,
+    description: `Looking for Pune Real Estate investments near ${data.name}? ${data.hook} Secure premium PMRDA NA Sanctioned Bungalow Plots at Kumar Aranya.`,
   }
 }
 
@@ -38,7 +38,7 @@ export default async function LocationPage({ params }) {
       <div style={{ height: '60vh', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', textAlign: 'center', overflow: 'hidden' }}>
         <Image 
           src="/assets/images/clubhouse.jpg" 
-          alt={`Aranya PMRDA Plots near ${data.name}`} 
+          alt={`NA Bungalow Plots near ${data.name} - Pune Real Estate`} 
           fill 
           priority 
           style={{ objectFit: 'cover', filter: 'brightness(0.4)' }} 
@@ -48,10 +48,10 @@ export default async function LocationPage({ params }) {
             {data.driveTime} from {data.name}
           </div>
           <h1 style={{ color: 'white', fontSize: '56px', marginBottom: '20px', lineHeight: '1.1' }}>
-            Premium NA Bungalow Plots near <span style={{ color: 'var(--secondary)' }}>{data.name}</span>
+            NA Bungalow Plots near <span style={{ color: 'var(--secondary)' }}>{data.name}</span>
           </h1>
           <p style={{ color: 'white', fontSize: '24px', fontWeight: '300', opacity: 0.9 }}>
-            The Ultimate Real Estate Upgrade for {data.name} Residents.
+            The Ultimate Pune Real Estate Upgrade for {data.name} Residents.
           </p>
         </div>
       </div>

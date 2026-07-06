@@ -188,7 +188,7 @@ export default function Home() {
       <section style={{ height: '100vh', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', overflow: 'hidden' }}>
         <Image 
           src="/assets/images/scenic_villa.png" 
-          alt="Aranya NA Bungalow Plots in Hinjewadi" 
+          alt="Kumar Aranya Bungalow Plots in Hinjewadi - Pune Real Estate" 
           fill 
           priority 
           style={{ objectFit: 'cover', filter: 'brightness(0.6)' }} 

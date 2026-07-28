@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import KumarLogo from './KumarLogo';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,8 +42,16 @@ export default function Navbar() {
         transition: 'all 0.4s ease',
         fontFamily: 'Inter, sans-serif'
       }}>
-        <Link href="/" style={{ color: 'white', fontSize: '28px', fontWeight: '400', letterSpacing: '6px', fontFamily: 'Cinzel, serif', textDecoration: 'none' }}>
-          ARANYA
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+          <KumarLogo size={42} />
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <span style={{ color: 'white', fontSize: '24px', fontWeight: '500', letterSpacing: '6px', fontFamily: 'Cinzel, serif', lineHeight: '1.05' }}>
+              ARANYA
+            </span>
+            <span style={{ color: 'var(--secondary, #d4af37)', fontSize: '9px', letterSpacing: '2.5px', textTransform: 'uppercase', fontWeight: '700', marginTop: '3px', opacity: 0.95 }}>
+              BY KUMAR PROPERTIES
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}

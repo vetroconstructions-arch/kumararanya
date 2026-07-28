@@ -6,6 +6,11 @@ export const metadata = {
   title: 'Aranya NA Bungalow Plots in Hinjewadi',
   description: 'Secure premium PMRDA sanctioned Aranya NA Bungalow Plots in Hinjewadi. The #1 real estate investment in Pune for capital appreciation and luxury living.',
   manifest: '/manifest.json',
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+    shortcut: '/favicon.png',
+  },
   openGraph: {
     title: 'Aranya NA Bungalow Plots in Hinjewadi',
     description: 'Secure premium PMRDA sanctioned Aranya NA Bungalow Plots in Hinjewadi. The definitive Pune real estate investment.',
@@ -54,6 +59,7 @@ import Web3Badge from '../components/Web3Badge';
 import GlobalEnquiryModal from '../components/GlobalEnquiryModal';
 import Providers from '../components/Providers';
 import SEOFooterSilo from '../components/SEOFooterSilo';
+import KumarLogo from '../components/KumarLogo';
 
 export default function RootLayout({ children }) {
   return (
@@ -119,13 +125,19 @@ export default function RootLayout({ children }) {
                 ))}
               </div>
             </div>
-            <div style={{ textAlign: 'center', borderTop: '1px solid #1a2a42', paddingTop: '30px', marginTop: '20px' }}>
+            <div style={{ textAlign: 'center', borderTop: '1px solid #1a2a42', paddingTop: '35px', marginTop: '30px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '18px' }}>
+                <KumarLogo size={36} />
+                <span style={{ color: 'white', fontSize: '20px', fontWeight: '500', letterSpacing: '5px', fontFamily: 'Cinzel, serif' }}>
+                  KUMAR ARANYA
+                </span>
+              </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '24px', marginBottom: '16px', fontSize: '13px', color: '#cbd5e1' }}>
                 <span>🏛️ <strong>MahaRERA Reg No:</strong> P52100050000</span>
                 <span>📜 <strong>PMRDA NA Sanctioned</strong> &amp; 100% Title Clear</span>
                 <span>🔐 <strong>RERA Portal:</strong> <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--secondary, #d4af37)', textDecoration: 'underline' }}>maharera.mahaonline.gov.in</a></span>
               </div>
-              <p style={{ fontSize: '12px', opacity: 0.5 }}>&copy; 2026 Kumar Builders. All Rights Reserved. | Aranya NA Bungalow Plots in Hinjewadi &bull; Pune Real Estate Authority</p>
+              <p style={{ fontSize: '12px', opacity: 0.5 }}>&copy; 2026 Kumar Properties &bull; Kumar Builders. All Rights Reserved. | Aranya NA Bungalow Plots in Hinjewadi &bull; Pune Real Estate Authority</p>
             </div>
           </div>
         </footer>

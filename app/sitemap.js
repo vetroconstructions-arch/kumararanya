@@ -2,6 +2,7 @@ import { locationsData } from './locationsData';
 import { insightsData } from './insightsData';
 import { nriData } from './nriData';
 import { seoMatrix } from './seoMatrixData';
+import { getAllPosts } from '../lib/mdx';
 
 export default function sitemap() {
   const baseUrl = 'https://www.kumararanya.in';
@@ -38,7 +39,33 @@ export default function sitemap() {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/360-tour`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/configurator`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
   ];
+
+  // Markdown Blog posts
+  const blogPosts = getAllPosts().map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.85,
+  }));
 
   // Dynamic Insight routes
   const insightRoutes = Object.keys(insightsData).map((slug) => ({
@@ -72,5 +99,5 @@ export default function sitemap() {
     priority: 0.7,
   }));
 
-  return [...routes, ...insightRoutes, ...locationRoutes, ...nriRoutes, ...pSeoRoutes];
+  return [...routes, ...blogPosts, ...insightRoutes, ...locationRoutes, ...nriRoutes, ...pSeoRoutes];
 }

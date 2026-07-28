@@ -90,20 +90,24 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link href="/aranya-na-bungalow-plots-hinjewadi/masterplan" style={{ 
-            padding: '10px 24px', 
-            background: 'var(--secondary)', 
-            color: 'var(--primary)', 
-            textDecoration: 'none', 
-            fontSize: '12px', 
-            fontWeight: 'bold',
-            letterSpacing: '1.5px', 
-            borderRadius: '4px',
-            transition: 'all 0.3s',
-            marginLeft: '10px'
-          }} className="btn-enquire">
-            BOOK NOW
-          </Link>
+          <button 
+            onClick={() => window.dispatchEvent(new Event('open-enquiry-modal'))} 
+            style={{ 
+              padding: '10px 24px', 
+              background: 'var(--secondary)', 
+              color: 'var(--primary)', 
+              border: 'none',
+              cursor: 'pointer',
+              fontSize: '12px', 
+              fontWeight: 'bold',
+              letterSpacing: '1.5px', 
+              borderRadius: '4px',
+              transition: 'all 0.3s',
+              marginLeft: '10px',
+              boxShadow: '0 4px 12px rgba(212,175,55,0.3)'
+            }} className="btn-enquire">
+            ENQUIRE NOW
+          </button>
         </div>
 
         {/* Mobile Hamburger Icon */}
@@ -150,9 +154,14 @@ export default function Navbar() {
           <div style={{ color: 'var(--secondary)', fontSize: '12px', letterSpacing: '2px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px', marginTop: '10px' }}>LOCATION</div>
           <Link href="/locations/hinjewadi-phase-1" onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'white', textDecoration: 'none', fontSize: '16px' }}>Hinjewadi IT Park</Link>
 
-          <Link href="/aranya-na-bungalow-plots-hinjewadi/masterplan" onClick={() => setIsMobileMenuOpen(false)} style={{ padding: '15px', background: 'var(--secondary)', color: 'var(--primary)', textAlign: 'center', marginTop: '20px', borderRadius: '4px', textDecoration: 'none', fontWeight: 'bold', letterSpacing: '1px' }}>
-              INTERACTIVE LAYOUT
-          </Link>
+          <button 
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              window.dispatchEvent(new Event('open-enquiry-modal'));
+            }}
+            style={{ padding: '15px', background: 'var(--secondary)', color: 'var(--primary)', textAlign: 'center', marginTop: '20px', borderRadius: '4px', border: 'none', fontWeight: 'bold', letterSpacing: '1px', fontSize: '15px', cursor: 'pointer', boxShadow: '0 4px 15px rgba(212,175,55,0.4)' }}>
+              ENQUIRE NOW →
+          </button>
         </div>
       </div>
     </>

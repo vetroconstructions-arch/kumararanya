@@ -206,9 +206,9 @@ export default function Home() {
             <p style={{ fontSize: '24px', maxWidth: '800px', margin: '0 auto 40px', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
               A 25+ Acre Super-Premium Gated Community in Marunji<br/>Dominating the Pune Real Estate Market.
             </p>
-            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href="/aranya-na-bungalow-plots-hinjewadi/pricing" className="btn" style={{ padding: '20px 40px', fontSize: '18px', boxShadow: '0 10px 30px rgba(212, 175, 55, 0.3)' }}>View Pricing & Details</Link>
-              <Link href="/aranya-na-bungalow-plots-hinjewadi/contact" className="btn btn-outline" style={{ padding: '20px 40px', fontSize: '18px', color: 'white', borderColor: 'white' }}>Schedule a Site Visit</Link>
+              <button onClick={() => window.dispatchEvent(new Event('open-enquiry-modal'))} className="btn btn-outline" style={{ padding: '20px 40px', fontSize: '18px', color: 'white', borderColor: 'white', background: 'rgba(255,255,255,0.1)', cursor: 'pointer', borderRadius: '4px' }}>Schedule a Site Visit</button>
             </div>
           </motion.div>
         </div>

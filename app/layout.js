@@ -34,7 +34,14 @@ export const metadata = {
   verification: {
     google: 'saaWp4gP9gzn6up9lsQTdPuc_TLOx89Q1XVULt4_Ngg',
   },
-}
+};
+
+export const viewport = {
+  themeColor: '#0a192f',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 import Link from 'next/link';
 import Navbar from '../components/Navbar';

@@ -9,6 +9,11 @@ export default function SchemaMarkup() {
         "name": "Kumar Aranya Bungalow Plots in Hinjewadi",
         "alternateName": "Pune Real Estate - Aranya NA Bungalow Plots",
         "description": "Secure premium PMRDA sanctioned NA Bungalow Plots at Kumar Aranya in Hinjewadi. The definitive Pune real estate investment.",
+        "sameAs": [
+          "https://en.wikipedia.org/wiki/Hinjawadi",
+          "https://en.wikipedia.org/wiki/Pune_Metropolitan_Region_Development_Authority",
+          "https://maharera.mahaonline.gov.in/"
+        ]
       },
       {
         "@type": "RealEstateAgent",
@@ -20,6 +25,11 @@ export default function SchemaMarkup() {
         "description": "The leading developer of premium NA Bungalow Plots in the Pune Real Estate market.",
         "telephone": "+917744009295",
         "email": "propsmartrealty@gmail.com",
+        "sameAs": [
+          "https://en.wikipedia.org/wiki/Hinjawadi",
+          "https://en.wikipedia.org/wiki/Pune_Metropolitan_Region_Development_Authority",
+          "https://maharera.mahaonline.gov.in/"
+        ],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Kumar Aranya, Near Hinjewadi IT Park Phase 1",
@@ -32,7 +42,55 @@ export default function SchemaMarkup() {
           "@type": "GeoCoordinates",
           "latitude": "18.5987",
           "longitude": "73.7380"
+        },
+        "areaServed": [
+          {
+            "@type": "AdministrativeArea",
+            "name": "Hinjewadi, Pune"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Marunji, Pune"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Pimpri-Chinchwad, Maharashtra"
+          }
+        ],
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "MahaRERA Regulatory Registration",
+          "identifier": "P52100050000",
+          "recognizedBy": {
+            "@type": "GovernmentOrganization",
+            "name": "Maharashtra Real Estate Regulatory Authority (MahaRERA)",
+            "url": "https://maharera.mahaonline.gov.in/"
+          }
         }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.kumararanya.in/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Pune Real Estate",
+            "item": "https://www.kumararanya.in/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Hinjewadi NA Bungalow Plots",
+            "item": "https://www.kumararanya.in/aranya-na-bungalow-plots-hinjewadi/pricing"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Kumar Aranya Masterplan & Layout",
+            "item": "https://www.kumararanya.in/aranya-na-bungalow-plots-hinjewadi/masterplan"
+          }
+        ]
       },
       {
         "@type": "Product",
@@ -75,6 +133,22 @@ export default function SchemaMarkup() {
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Yes, Kumar Aranya Bungalow Plots are 100% Title Clear and PMRDA Sanctioned, ensuring zero legal risk and immediate building permissions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the starting price for plots at Kumar Aranya in Hinjewadi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Premium 2,240 sq.ft to 7,600 sq.ft NA Bungalow Plots at Kumar Aranya start at ₹1.56 Cr with attractive payment plans and NRI financing assistance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How far is Kumar Aranya from Hinjewadi IT Park Phase 1 and Marunji?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Kumar Aranya is strategically located on the Hinjewadi-Marunji link corridor, just 12-15 minutes from Hinjewadi IT Park Phase 1, Phase 2, and the upcoming Ring Road interchange."
             }
           }
         ]

@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || 're_123456789_build_fallback');
 
 // Simple in-memory rate limiting store (Works perfectly for Vercel Serverless Functions)
 // Keys are IP addresses, values are objects: { count: number, resetTime: number }

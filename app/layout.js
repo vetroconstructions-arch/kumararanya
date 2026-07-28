@@ -112,8 +112,13 @@ export default function RootLayout({ children }) {
                 ))}
               </div>
             </div>
-            <div style={{ textAlign: 'center', borderTop: '1px solid #1a2a42', paddingTop: '20px' }}>
-              <p style={{ fontSize: '12px', opacity: 0.4 }}>&copy; 2026 Kumar Builders. All Rights Reserved. | Aranya NA Bungalow Plots</p>
+            <div style={{ textAlign: 'center', borderTop: '1px solid #1a2a42', paddingTop: '30px', marginTop: '20px' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '24px', marginBottom: '16px', fontSize: '13px', color: '#cbd5e1' }}>
+                <span>🏛️ <strong>MahaRERA Reg No:</strong> P52100050000</span>
+                <span>📜 <strong>PMRDA NA Sanctioned</strong> &amp; 100% Title Clear</span>
+                <span>🔐 <strong>RERA Portal:</strong> <a href="https://maharera.mahaonline.gov.in" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--secondary, #d4af37)', textDecoration: 'underline' }}>maharera.mahaonline.gov.in</a></span>
+              </div>
+              <p style={{ fontSize: '12px', opacity: 0.5 }}>&copy; 2026 Kumar Builders. All Rights Reserved. | Aranya NA Bungalow Plots in Hinjewadi &bull; Pune Real Estate Authority</p>
             </div>
           </div>
         </footer>

@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import MasterplanInteractive from '../components/MasterplanInteractive';
 import ExpansiveData from '../components/ExpansiveData';
 import PuneMarketAnalysis from '../components/PuneMarketAnalysis';
+import SerpJumpNav from '../components/SerpJumpNav';
 
 export default function Home() {
   const [initialInvestment, setInitialInvestment] = useState(15680000); // 1.56 Cr
@@ -185,7 +186,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
 
       {/* Hero Section */}
-      <section style={{ height: '100vh', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', overflow: 'hidden' }}>
+      <section id="overview" style={{ height: '100vh', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', overflow: 'hidden' }}>
         <Image 
           src="/assets/images/scenic_villa.png" 
           alt="Kumar Aranya Bungalow Plots in Hinjewadi - Pune Real Estate" 
@@ -213,7 +214,11 @@ export default function Home() {
         </div>
       </section>
 
-      <PuneMarketAnalysis />
+      <SerpJumpNav />
+
+      <div id="pune-market">
+        <PuneMarketAnalysis />
+      </div>
 
       {/* ROI Calculator Section */}
       <section id="roi-calculator" style={{ padding: '100px 20px', background: 'white' }}>
@@ -262,7 +267,7 @@ export default function Home() {
       </section>
 
       {/* Interactive Masterplan Section */}
-      <section id="layout" style={{ padding: '100px 20px', background: '#f9f9f9', textAlign: 'center' }}>
+      <section id="masterplan" style={{ padding: '100px 20px', background: '#f9f9f9', textAlign: 'center' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '42px', color: 'var(--primary)', marginBottom: '20px' }}>Interactive Masterplan</h2>
           <p style={{ fontSize: '18px', color: '#666', marginBottom: '60px', maxWidth: '800px', margin: '0 auto 60px' }}>

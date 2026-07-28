@@ -106,7 +106,7 @@ export default function Navbar() {
               marginLeft: '10px',
               boxShadow: '0 4px 12px rgba(212,175,55,0.3)'
             }} className="btn-enquire">
-            ENQUIRE NOW
+            BOOK NOW
           </button>
         </div>
 
@@ -160,7 +160,7 @@ export default function Navbar() {
               window.dispatchEvent(new Event('open-enquiry-modal'));
             }}
             style={{ padding: '15px', background: 'var(--secondary)', color: 'var(--primary)', textAlign: 'center', marginTop: '20px', borderRadius: '4px', border: 'none', fontWeight: 'bold', letterSpacing: '1px', fontSize: '15px', cursor: 'pointer', boxShadow: '0 4px 15px rgba(212,175,55,0.4)' }}>
-              ENQUIRE NOW →
+              BOOK NOW →
           </button>
         </div>
       </div>

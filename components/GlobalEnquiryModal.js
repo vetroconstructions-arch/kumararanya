@@ -11,19 +11,23 @@ export default function GlobalEnquiryModal() {
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
-    // 1. Preload & auto-open modal after 4 seconds for new visitors
-    const hasSeenModal = sessionStorage.getItem('aranya_enquiry_modal_seen');
-    if (!hasSeenModal) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 4000); // 4.0 seconds preload delay
-      return () => clearTimeout(timer);
-    }
-
-    // 2. Global event listener to open modal from any Enquire/CTA button
+    // 1. Global event listener to open modal immediately when any CTA/Book Now button is clicked
     const handleOpenModal = () => setIsOpen(true);
     window.addEventListener('open-enquiry-modal', handleOpenModal);
-    return () => window.removeEventListener('open-enquiry-modal', handleOpenModal);
+
+    // 2. Preload & auto-open modal after 4 seconds for new visitors
+    const hasSeenModal = sessionStorage.getItem('aranya_enquiry_modal_seen');
+    let timer;
+    if (!hasSeenModal) {
+      timer = setTimeout(() => {
+        setIsOpen(true);
+      }, 4000);
+    }
+
+    return () => {
+      window.removeEventListener('open-enquiry-modal', handleOpenModal);
+      if (timer) clearTimeout(timer);
+    };
   }, []);
 
   const handleClose = () => {

@@ -97,7 +97,7 @@ export default function SchemaMarkup() {
         "@id": "https://www.kumararanya.in/#product",
         "name": "Kumar Aranya Bungalow Plots in Hinjewadi",
         "image": "https://www.kumararanya.in/assets/images/clubhouse.jpg",
-        "description": "100% Title Clear PMRDA NA Bungalow Plots located near Hinjewadi, Pune. The apex of Pune Real Estate investment.",
+        "description": "100% Title Clear PMRDA NA Bungalow Plots (2,400 to 7,600 sq.ft) located near Hinjewadi, Pune. The apex of Pune Real Estate investment.",
         "brand": {
           "@type": "Brand",
           "name": "Kumar Aranya"
@@ -111,7 +111,8 @@ export default function SchemaMarkup() {
           "@type": "AggregateOffer",
           "url": "https://www.kumararanya.in/aranya-na-bungalow-plots-hinjewadi/pricing",
           "priceCurrency": "INR",
-          "lowPrice": "15600000",
+          "lowPrice": "17200000",
+          "highPrice": "54466667",
           "offerCount": "89"
         }
       },
@@ -140,7 +141,7 @@ export default function SchemaMarkup() {
             "name": "What is the starting price for plots at Kumar Aranya in Hinjewadi?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Premium 2,240 sq.ft to 7,600 sq.ft NA Bungalow Plots at Kumar Aranya start at ₹1.56 Cr with attractive payment plans and NRI financing assistance."
+              "text": "Premium 2,400 sq.ft to 7,600 sq.ft NA Bungalow Plots at Kumar Aranya start at ₹1.72 Cr with attractive payment plans and NRI financing assistance."
             }
           },
           {

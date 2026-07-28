@@ -9,7 +9,7 @@ import PuneMarketAnalysis from '../components/PuneMarketAnalysis';
 import SerpJumpNav from '../components/SerpJumpNav';
 
 export default function Home() {
-  const [initialInvestment, setInitialInvestment] = useState(15680000); // 1.56 Cr
+  const [initialInvestment, setInitialInvestment] = useState(17200000); // 1.72 Cr (2,400 sq.ft base)
   const [years, setYears] = useState(5);
   
   // Enquiry Form State

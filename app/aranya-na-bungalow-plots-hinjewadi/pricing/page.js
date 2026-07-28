@@ -4,7 +4,7 @@ import PricingGrid from '../../../components/PricingGrid';
 
 export const metadata = {
   title: 'Pricing & Dimensions | Aranya NA Bungalow Plots in Hinjewadi',
-  description: 'Explore the pricing, dimensions, and investment potential of Aranya NA Bungalow Plots in Hinjewadi. Starting from ₹1.56 Cr for 2240 sq.ft to 7600 sq.ft.',
+  description: 'Explore the proportionate pricing, dimensions, and investment potential of Aranya NA Bungalow Plots in Hinjewadi. Starting from ₹1.72 Cr for 2400 sq.ft up to 7600 sq.ft.',
   alternates: {
     canonical: 'https://www.kumararanya.in/aranya-na-bungalow-plots-hinjewadi/pricing'
   }

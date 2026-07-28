@@ -7,12 +7,20 @@ export default function PlotAvailability() {
     return Array.from({ length: 48 }).map((_, i) => {
       const isCorner = i % 8 === 0 || i % 8 === 7;
       let status = 'AVAILABLE';
-      let type = 'Compact Villa';
-      let size = '2,240 sq.ft';
-      
-      // Determine size
-      if (i > 30) { type = 'Premium Estate'; size = '5,000 sq.ft'; }
-      if (i > 42) { type = 'Signature Estate'; size = '7,600 sq.ft'; }
+      const sizesArray = [
+        { size: '2,400 sq.ft', type: 'Compact Villa Plot' },
+        { size: '2,699 sq.ft', type: 'Executive Villa Plot' },
+        { size: '3,050 sq.ft', type: 'Prime Bungalow Plot' },
+        { size: '3,800 sq.ft', type: 'Grand Garden Plot' },
+        { size: '4,199 sq.ft', type: 'Luxury Villa Estate' },
+        { size: '4,950 sq.ft', type: 'Premium Estate' },
+        { size: '6,500 sq.ft', type: 'Royal Mansion Estate' },
+        { size: '6,909 sq.ft', type: 'Imperial Bungalow Plot' },
+        { size: '7,600 sq.ft', type: 'Signature Lakefront Mansion' }
+      ];
+      const assigned = sizesArray[i % sizesArray.length];
+      const type = assigned.type;
+      const size = assigned.size;
 
       // Generate fake FOMO status deterministically based on index so it stays consistent
       if (i % 3 === 0) status = 'SOLD';

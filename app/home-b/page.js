@@ -7,7 +7,7 @@ import ExpansiveData from '../../components/ExpansiveData';
 import PuneMarketAnalysis from '../../components/PuneMarketAnalysis';
 
 export default function Home() {
-  const [initialInvestment, setInitialInvestment] = useState(15680000); // 1.56 Cr
+  const [initialInvestment, setInitialInvestment] = useState(17200000); // 1.72 Cr (2,400 sq.ft base)
   const [years, setYears] = useState(5);
   
   // Enquiry Form State
@@ -80,7 +80,7 @@ export default function Home() {
         "name": "What is the price of NA plots at Aranya?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Premium NA bungalow plots at Aranya start from ₹1.4 Crore onwards. Pricing varies based on exact plot size, layout orientation, and proximity to the biodiversity park."
+          "text": "Premium NA bungalow plots at Aranya start from ₹1.72 Crore onwards (for 2,400 sq.ft) up to ₹5.45 Crore (for 7,600 sq.ft). Pricing is proportionate based on exact plot size, layout orientation, and proximity to the biodiversity park."
         }
       },
       {

@@ -60,8 +60,8 @@ export default function Navbar() {
           <div className="dropdown" style={{ position: 'relative' }}>
             <span style={{ color: 'white', cursor: 'pointer', fontSize: '12px', fontWeight: '600', letterSpacing: '1.5px' }} className="nav-link">MASTERPLAN ▾</span>
             <div className="dropdown-content">
-              <Link href="/aranya-na-bungalow-plots-hinjewadi/pricing">2,240 sq.ft Compact Villas</Link>
-              <Link href="/aranya-na-bungalow-plots-hinjewadi/pricing">5,000 sq.ft Premium Estates</Link>
+              <Link href="/aranya-na-bungalow-plots-hinjewadi/pricing">2,400 sq.ft Compact Villas</Link>
+              <Link href="/aranya-na-bungalow-plots-hinjewadi/pricing">4,950 sq.ft Premium Estates</Link>
               <Link href="/aranya-na-bungalow-plots-hinjewadi/pricing">7,600 sq.ft Signature Estates</Link>
               <Link href="/aranya-na-bungalow-plots-hinjewadi/masterplan">Interactive SVG Layout</Link>
             </div>

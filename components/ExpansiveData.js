@@ -5,9 +5,9 @@ export default function ExpansiveData() {
   const [openFaq, setOpenFaq] = useState(0);
 
   const faqs = [
-    { q: "What is the price of NA plots at Aranya?", a: "Premium NA bungalow plots at Aranya start from ₹1.56 Crore onwards. Pricing varies based on exact plot size, layout orientation, and proximity to the biodiversity park." },
+    { q: "What is the price of NA plots at Aranya?", a: "Premium NA bungalow plots at Aranya start from ₹1.72 Crore onwards (for 2,400 sq.ft) up to ₹5.45 Crore (for 7,600 sq.ft). Pricing is proportionate across all plot dimensions based on layout orientation and proximity to the biodiversity park." },
     { q: "Is Aranya within PMC limits?", a: "Yes, the project is strategically located with seamless connectivity to PMC infrastructure, ensuring rapid property value appreciation and excellent civic amenities." },
-    { q: "What plot sizes are available?", a: "We offer tailored configurations: 2,240 sq.ft compact villa plots, 5,000 sq.ft premium villa plots, and 7,600 sq.ft ultra-premium estate plots." },
+    { q: "What plot sizes are available?", a: "We offer 9 tailored NA bungalow plot sizes: 2,400, 2,699, 3,050, 3,800, 4,199, 4,950, 6,500, 6,909, and 7,600 sq.ft, catering to custom G+2 luxury villa and lakefront mansion estates." },
     { q: "Can I build a G+2 villa?", a: "Absolutely. All plots come with 100% clear NA (Non-Agricultural) titles, 1.5 FSI, and approved G+2 building permissions." },
     { q: "How far is it from Hinjewadi IT Park?", a: "Aranya is located just minutes away from the Hinjewadi IT corridor, providing the perfect balance between corporate proximity and biophilic tranquility." }
   ];
@@ -50,8 +50,8 @@ export default function ExpansiveData() {
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
             {[
-              { type: 'Compact Villa', size: '2,240 sq.ft', fsi: '1.5 FSI', permission: 'G+2 Floors' },
-              { type: 'Premium Villa', size: '5,000 sq.ft', fsi: '1.5 FSI', permission: 'G+2 Floors' },
+              { type: 'Compact Villa', size: '2,400 sq.ft', fsi: '1.5 FSI', permission: 'G+2 Floors' },
+              { type: 'Premium Estate', size: '4,950 sq.ft', fsi: '1.5 FSI', permission: 'G+2 Floors' },
               { type: 'Signature Estate', size: '7,600 sq.ft', fsi: '1.5 FSI', permission: 'G+2 Floors' }
             ].map((spec, i) => (
               <div key={i} style={{ flex: '1 1 300px', maxWidth: '350px', background: 'white', padding: '40px', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', borderTop: '4px solid var(--secondary)' }}>

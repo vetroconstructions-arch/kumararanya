@@ -7,6 +7,7 @@ import MasterplanInteractive from '../components/MasterplanInteractive';
 import ExpansiveData from '../components/ExpansiveData';
 import PuneMarketAnalysis from '../components/PuneMarketAnalysis';
 import SerpJumpNav from '../components/SerpJumpNav';
+import { submitLead } from '../lib/enquiryHelper';
 
 export default function Home() {
   const [initialInvestment, setInitialInvestment] = useState(17200000); // 1.72 Cr (2,400 sq.ft base)
@@ -32,33 +33,16 @@ export default function Home() {
     setFormStatus('loading');
     
     try {
-      const res = await fetch('/api/enquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, projectInterest: 'Aranya NA Bungalow Plots' })
+      await submitLead({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        projectInterest: 'Aranya NA Bungalow Plots (Homepage Form)',
+        source: 'Homepage Enquiry Section'
       });
       
-      if (res.ok) {
-        setFormStatus('success');
-        setFormData({ name: '', phone: '', email: '' });
-
-        // Fire Conversion Events
-        if (typeof window !== 'undefined') {
-          if (window.gtag) {
-            window.gtag('event', 'generate_lead', {
-              event_category: 'General Enquiry',
-              event_label: 'Homepage Form'
-            });
-          }
-          if (window.fbq) {
-            window.fbq('track', 'Lead', {
-              content_name: 'Homepage Enquiry'
-            });
-          }
-        }
-      } else {
-        setFormStatus('error');
-      }
+      setFormStatus('success');
+      setFormData({ name: '', phone: '', email: '' });
     } catch(err) {
       setFormStatus('error');
     }

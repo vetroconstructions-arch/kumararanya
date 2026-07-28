@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { submitLead, getAttributionData } from '../lib/enquiryHelper';
 
 export default function GlobalEnquiryModal() {
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -11,6 +12,9 @@ export default function GlobalEnquiryModal() {
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
+    // Collect UTM parameters immediately on site load
+    getAttributionData();
+
     // 1. Global event listener to open modal immediately when any CTA/Book Now button is clicked
     const handleOpenModal = () => setIsOpen(true);
     window.addEventListener('open-enquiry-modal', handleOpenModal);
@@ -50,44 +54,26 @@ export default function GlobalEnquiryModal() {
     }
 
     try {
-      const res = await fetch('/api/enquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          ...formData, 
-          projectInterest: 'Aranya NA Bungalow Plots (Global Modal)', 
-          recaptchaToken: token 
-        }),
+      await submitLead({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        projectInterest: 'Aranya NA Bungalow Plots (9-Tier Pricing)',
+        source: 'Global Enquiry Modal',
+        recaptchaToken: token
       });
 
-      const data = await res.json();
-
-      if (res.ok && data.success) {
-        setFormStatus('success');
-        sessionStorage.setItem('aranya_enquiry_modal_seen', 'true');
-        
-        // GTM Event Push
-        if (typeof window !== 'undefined') {
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            event: 'lead_submitted',
-            form_type: 'global_modal_preload',
-            project: 'Kumar Aranya'
-          });
-        }
-        
-        setTimeout(() => {
-          setIsOpen(false);
-          setFormStatus('idle');
-          setFormData({ name: '', phone: '', email: '' });
-        }, 3000);
-      } else {
-        setFormStatus('error');
-        setErrorMessage(data.error || 'Failed to submit. Please check your phone number.');
-      }
+      setFormStatus('success');
+      sessionStorage.setItem('aranya_enquiry_modal_seen', 'true');
+      
+      setTimeout(() => {
+        setIsOpen(false);
+        setFormStatus('idle');
+        setFormData({ name: '', phone: '', email: '' });
+      }, 3000);
     } catch (err) {
       setFormStatus('error');
-      setErrorMessage('Network error. Please check your connection or contact via WhatsApp.');
+      setErrorMessage(err.message || 'Failed to submit. Please check your phone number.');
     }
   };
 
@@ -178,7 +164,7 @@ export default function GlobalEnquiryModal() {
 
                   {formStatus === 'error' && (
                     <div style={{ color: '#e74c3c', fontSize: '14px', textAlign: 'center', background: 'rgba(231, 76, 60, 0.1)', padding: '10px', borderRadius: '8px' }}>
-                      {errorMessage || 'Failed to send enquiry. Please try again.'}
+                      {errorMessage || 'Failed to send enquiry. Please check your phone number.'}
                     </div>
                   )}
 

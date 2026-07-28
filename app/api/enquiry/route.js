@@ -5,7 +5,7 @@ const resend = new Resend(process.env.RESEND_API_KEY || 're_123456789_build_fall
 // Simple in-memory rate limiting store (Works perfectly for Vercel Serverless Functions)
 const rateLimitStore = new Map();
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
-const MAX_REQUESTS_PER_WINDOW = 10;
+const MAX_REQUESTS_PER_WINDOW = 15;
 
 // Basic HTML sanitization to prevent XSS payloads
 const sanitizeInput = (str) => {
@@ -40,10 +40,15 @@ export async function POST(req) {
     // 2. PARSE AND SANITIZE INPUTS
     const rawData = await req.json();
     
-    const name = sanitizeInput(rawData.name);
+    const name = sanitizeInput(rawData.name) || 'Investor Lead';
     const phone = sanitizeInput(rawData.phone);
     const email = sanitizeInput(rawData.email);
     const projectInterest = sanitizeInput(rawData.projectInterest) || 'Aranya NA Bungalow Plots';
+    const source = sanitizeInput(rawData.source) || 'Website Enquiry';
+    const utmSource = sanitizeInput(rawData.utmSource) || 'Direct/Organic';
+    const utmMedium = sanitizeInput(rawData.utmMedium) || 'Website';
+    const utmCampaign = sanitizeInput(rawData.utmCampaign) || 'Kumar Aranya';
+    const gclid = sanitizeInput(rawData.gclid) || 'N/A';
     const recaptchaToken = rawData.recaptchaToken;
 
     // Optional reCAPTCHA Server Verification (Non-blocking fallback)
@@ -63,25 +68,25 @@ export async function POST(req) {
     }
 
     // 3. REGEX VALIDATION
-    if (!name || !phone) {
-      return new Response(JSON.stringify({ error: 'Name and Phone are required.' }), {
+    if (!phone) {
+      return new Response(JSON.stringify({ error: 'Phone number is required.' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
     }
 
-    // Flexible international & Indian phone regex (10-15 digits, optional + code)
-    const cleanedPhone = phone.replace(/[\s\-\(\)]+/g, '');
-    const phoneRegex = /^\+?[0-9]{10,15}$/;
+    // Flexible international & Indian phone regex (7-16 digits, optional + code or spaces/dashes stripped)
+    const cleanedPhone = phone.replace(/[\s\-\(\)\.]+/g, '');
+    const phoneRegex = /^\+?[0-9]{7,16}$/;
     if (!phoneRegex.test(cleanedPhone)) {
-      return new Response(JSON.stringify({ error: 'Please enter a valid 10-15 digit mobile number.' }), {
+      return new Response(JSON.stringify({ error: 'Please enter a valid mobile number with country code.' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
     }
 
-    // Log verified lead to server console for immediate audit
-    console.log(`[NEW LEAD RECORDED] Name: ${name} | Phone: ${phone} | Email: ${email || 'N/A'} | Project: ${projectInterest} | IP: ${ip} | Time: ${new Date().toISOString()}`);
+    // Log verified lead with UTM attribution to server console
+    console.log(`[NEW LEAD RECORDED] Name: ${name} | Phone: ${phone} | Email: ${email || 'N/A'} | Source: ${source} | Project: ${projectInterest} | UTM Source: ${utmSource} | Campaign: ${utmCampaign} | IP: ${ip} | Time: ${new Date().toISOString()}`);
 
     // 4. ENTERPRISE EMAIL DELIVERY (RESEND API - Fault Tolerant)
     try {
@@ -89,17 +94,24 @@ export async function POST(req) {
       const data = await resend.emails.send({
         from: senderEmail,
         to: ['propsmartrealty@gmail.com'],
-        subject: `New Lead: ${name} - ${projectInterest}`,
+        subject: `New Lead (${source}): ${name} - ${projectInterest}`,
         html: `
-          <h2>New Enquiry from Kumar Aranya Website</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Phone:</strong> ${phone}</p>
-          <p><strong>Email:</strong> ${email || 'Not Provided'}</p>
-          <p><strong>Project Interest:</strong> ${projectInterest}</p>
-          <p><strong>Timestamp:</strong> ${new Date().toLocaleString()}</p>
-          <p><strong>IP Address:</strong> ${ip}</p>
-          <hr/>
-          <p><small>This lead was securely recorded via the Kumar Aranya Automated Lead Engine.</small></p>
+          <div style="font-family: Arial, sans-serif; max-width: 600px; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+            <h2 style="color: #0a192f; border-bottom: 2px solid #d4af37; padding-bottom: 10px;">New Enquiry - Kumar Aranya</h2>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Phone:</strong> <a href="tel:${phone}" style="font-size: 18px; font-weight: bold; color: #0066cc;">${phone}</a></p>
+            <p><strong>Email:</strong> ${email || 'Not Provided'}</p>
+            <p><strong>Project Interest:</strong> ${projectInterest}</p>
+            <p><strong>Lead Source:</strong> ${source}</p>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;" />
+            <h4 style="color: #555; margin-bottom: 5px;">Attribution & Marketing Metadata</h4>
+            <p style="font-size: 13px; color: #666; margin: 3px 0;"><strong>UTM Source:</strong> ${utmSource}</p>
+            <p style="font-size: 13px; color: #666; margin: 3px 0;"><strong>UTM Medium:</strong> ${utmMedium}</p>
+            <p style="font-size: 13px; color: #666; margin: 3px 0;"><strong>UTM Campaign:</strong> ${utmCampaign}</p>
+            <p style="font-size: 13px; color: #666; margin: 3px 0;"><strong>Google Click ID (gclid):</strong> ${gclid}</p>
+            <p style="font-size: 13px; color: #666; margin: 3px 0;"><strong>IP Address:</strong> ${ip}</p>
+            <p style="font-size: 13px; color: #666; margin: 3px 0;"><strong>Timestamp:</strong> ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })} IST</p>
+          </div>
         `
       });
       console.log('Resend Delivery Success:', data);
@@ -118,8 +130,12 @@ export async function POST(req) {
             name: name,
             phone: phone,
             email: email || 'Not Provided',
-            source: 'Website Enquiry',
+            source: source,
             project: projectInterest,
+            utm_source: utmSource,
+            utm_medium: utmMedium,
+            utm_campaign: utmCampaign,
+            gclid: gclid,
             timestamp: new Date().toISOString()
           })
         });

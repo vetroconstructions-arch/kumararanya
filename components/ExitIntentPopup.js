@@ -1,11 +1,13 @@
 'use client';
 import { useEffect, useState, useRef } from 'react';
+import { submitLead } from '../lib/enquiryHelper';
 
 export default function ExitIntentPopup() {
   const [isVisible, setIsVisible] = useState(false);
   const hasTriggeredRef = useRef(false);
   const [formData, setFormData] = useState({ phone: '' });
   const [status, setStatus] = useState('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     // Check if user already saw this in previous sessions
@@ -32,19 +34,18 @@ export default function ExitIntentPopup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
+    setErrorMessage('');
     try {
-      const res = await fetch('/api/enquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: 'Exit Intent Lead', phone: formData.phone, source: 'Exit Intent Popup' })
+      await submitLead({
+        name: 'Exit Intent Lead',
+        phone: formData.phone,
+        projectInterest: 'Aranya Masterplan & Pricing Sheet',
+        source: 'Exit Intent Popup'
       });
-      if(res.ok) {
-        setStatus('success');
-      } else {
-        setStatus('error');
-      }
+      setStatus('success');
     } catch(err) {
       setStatus('error');
+      setErrorMessage(err.message || 'Please check your WhatsApp number and try again.');
     }
   };
 
@@ -81,28 +82,33 @@ export default function ExitIntentPopup() {
         
         <h2 style={{ fontSize: '28px', color: 'var(--primary)', marginBottom: '15px', textAlign: 'center' }}>Wait! Don&apos;t Leave Empty Handed.</h2>
         <p style={{ fontSize: '16px', color: '#555', marginBottom: '30px', textAlign: 'center', lineHeight: '1.6' }}>
-          Get the highly exclusive <strong>Aranya Masterplan & Pricing Brochure</strong> delivered instantly to your WhatsApp.
+          Get the highly exclusive <strong>Aranya Masterplan & 9-Tier Costing Sheet</strong> delivered instantly to your WhatsApp.
         </p>
 
         {status === 'success' ? (
-          <div style={{ textAlign: 'center', color: 'green', fontSize: '18px', fontWeight: 'bold', padding: '20px' }}>
-            Brochure sent! Please check your WhatsApp.
+          <div style={{ textAlign: 'center', color: '#27ae60', fontSize: '18px', fontWeight: 'bold', padding: '20px' }}>
+            ✓ Brochure sent! Please check your WhatsApp shortly.
           </div>
         ) : (
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
             <input 
               type="tel" 
-              placeholder="Enter your 10-digit WhatsApp Number" 
+              placeholder="Enter WhatsApp Number (with country code)" 
               required 
-              pattern="[0-9]{10}"
               value={formData.phone}
               onChange={(e) => setFormData({ phone: e.target.value })}
               style={{ padding: '15px 20px', fontSize: '16px', borderRadius: '8px', border: '1px solid #ccc', outline: 'none', textAlign: 'center' }}
             />
-            <button type="submit" disabled={status === 'loading'} className="btn" style={{ padding: '15px', fontSize: '18px', border: 'none', cursor: 'pointer', background: 'var(--secondary)', color: 'var(--primary)', fontWeight: 'bold' }}>
-              {status === 'loading' ? 'Sending...' : 'Get Instant Access'}
+            {status === 'error' && (
+              <div style={{ color: '#e74c3c', fontSize: '13px', textAlign: 'center' }}>{errorMessage}</div>
+            )}
+            <button 
+              type="submit" 
+              disabled={status === 'loading'}
+              style={{ padding: '16px', background: 'var(--secondary)', color: 'var(--primary)', fontSize: '18px', fontWeight: 'bold', border: 'none', borderRadius: '8px', cursor: status === 'loading' ? 'not-allowed' : 'pointer', opacity: status === 'loading' ? 0.7 : 1 }}
+            >
+              {status === 'loading' ? 'Sending...' : 'Send Me The Brochure →'}
             </button>
-            {status === 'error' && <div style={{ color: 'red', textAlign: 'center', fontSize: '14px' }}>Connection error. Please try again.</div>}
           </form>
         )}
       </div>

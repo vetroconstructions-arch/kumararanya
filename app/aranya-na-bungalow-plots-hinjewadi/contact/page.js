@@ -1,28 +1,30 @@
 'use client';
 import { useState } from 'react';
 import Navbar from '../../../components/Navbar';
+import { submitLead } from '../../../lib/enquiryHelper';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
   const [status, setStatus] = useState('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
+    setErrorMessage('');
     try {
-      const res = await fetch('/api/enquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, source: 'Contact Page' })
+      await submitLead({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        projectInterest: 'Aranya NA Bungalow Plots (Contact Page Request)',
+        source: 'Dedicated Contact Page'
       });
-      if(res.ok) {
-        setStatus('success');
-        setFormData({ name: '', phone: '', email: '' });
-      } else {
-        setStatus('error');
-      }
+      setStatus('success');
+      setFormData({ name: '', phone: '', email: '' });
     } catch(err) {
       setStatus('error');
+      setErrorMessage(err.message || 'Something went wrong. Please check your phone number.');
     }
   };
 
@@ -33,7 +35,7 @@ export default function ContactPage() {
       <div style={{ padding: '150px 20px 80px', textAlign: 'center', background: '#0a192f', color: 'white' }}>
         <h1 style={{ fontSize: '48px', marginBottom: '20px', color: 'var(--secondary)' }}>Contact Sales Team</h1>
         <p style={{ fontSize: '20px', maxWidth: '800px', margin: '0 auto', opacity: 0.9 }}>
-          Get in touch with our experts to secure your exclusive Aranya NA Bungalow Plot near Hinjewadi IT Park.
+          Get in touch with our senior investment advisors to secure your exclusive Aranya NA Bungalow Plot near Hinjewadi IT Park.
         </p>
       </div>
 
@@ -44,7 +46,7 @@ export default function ContactPage() {
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <input 
               type="text" 
-              placeholder="Your Full Name" 
+              placeholder="Your Full Name *" 
               required 
               value={formData.name}
               onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -52,27 +54,25 @@ export default function ContactPage() {
             />
             <input 
               type="tel" 
-              placeholder="Phone Number (10 digits)" 
+              placeholder="Phone Number (with country code) *" 
               required 
-              pattern="[0-9]{10}"
               value={formData.phone}
               onChange={(e) => setFormData({...formData, phone: e.target.value})}
               style={{ padding: '15px 20px', fontSize: '16px', borderRadius: '8px', border: '1px solid #ccc', outline: 'none' }}
             />
             <input 
               type="email" 
-              placeholder="Email Address" 
-              required 
+              placeholder="Email Address (Optional)" 
               value={formData.email}
               onChange={(e) => setFormData({...formData, email: e.target.value})}
               style={{ padding: '15px 20px', fontSize: '16px', borderRadius: '8px', border: '1px solid #ccc', outline: 'none' }}
             />
             <button type="submit" disabled={status === 'loading'} className="btn" style={{ padding: '15px', fontSize: '18px', border: 'none', cursor: 'pointer', opacity: status === 'loading' ? 0.7 : 1 }}>
-              {status === 'loading' ? 'Submitting...' : 'Submit Request'}
+              {status === 'loading' ? 'Submitting...' : 'Submit Request →'}
             </button>
 
-            {status === 'success' && <div style={{ color: 'green', textAlign: 'center', marginTop: '10px' }}>Thanks! We will contact you shortly.</div>}
-            {status === 'error' && <div style={{ color: 'red', textAlign: 'center', marginTop: '10px' }}>Something went wrong. Please try again.</div>}
+            {status === 'success' && <div style={{ color: '#27ae60', textAlign: 'center', marginTop: '10px', fontWeight: 'bold' }}>✓ Thanks! An investment advisor will contact you shortly.</div>}
+            {status === 'error' && <div style={{ color: '#e74c3c', textAlign: 'center', marginTop: '10px' }}>{errorMessage}</div>}
           </form>
 
         </div>

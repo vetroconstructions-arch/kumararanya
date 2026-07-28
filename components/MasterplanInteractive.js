@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { submitLead } from '../lib/enquiryHelper';
 
 const mockPlots = [
   { id: '1', status: 'sold', sqft: 5000, price: '₹2.5 Cr', type: 'Lakeview Estate' },
@@ -31,40 +32,17 @@ export default function MasterplanInteractive() {
     e.preventDefault();
     setEnquiryStatus('sending');
     const formData = new FormData(e.target);
-    const payload = {
-      name: formData.get('name'),
-      phone: formData.get('phone'),
-      email: formData.get('email'),
-      projectInterest: `Aranya Block Request - Plot ${selectedPlot.id} (${selectedPlot.sqft} sqft, ${selectedPlot.price})`
-    };
 
     try {
-      await fetch('/api/enquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+      await submitLead({
+        name: formData.get('name'),
+        phone: formData.get('phone'),
+        email: formData.get('email'),
+        projectInterest: `Aranya Block Request - Plot ${selectedPlot.id} (${selectedPlot.sqft} sqft, ${selectedPlot.price})`,
+        source: 'Interactive Masterplan'
       });
       setEnquiryStatus('success');
-
-      // Fire Conversion Events
-      if (typeof window !== 'undefined') {
-        if (window.gtag) {
-          window.gtag('event', 'generate_lead', {
-            event_category: 'Plot Block',
-            event_label: `Plot ${selectedPlot.id}`,
-            value: 14000000
-          });
-        }
-        if (window.fbq) {
-          window.fbq('track', 'Lead', {
-            content_name: `Plot ${selectedPlot.id} Block`,
-            value: 14000000,
-            currency: 'INR'
-          });
-        }
-      }
-
-      setTimeout(() => setSelectedPlot(null), 3000); // close after 3s
+      setTimeout(() => setSelectedPlot(null), 3500);
     } catch (err) {
       setEnquiryStatus('error');
     }
@@ -194,8 +172,8 @@ export default function MasterplanInteractive() {
             <p style={{ fontSize: '14px', color: '#aaa', marginBottom: '30px' }}>Submit your details to instantly block Plot {selectedPlot.id} for 24 hours. Our sales team will contact you to facilitate the token amount.</p>
 
             <form onSubmit={handleFormSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-              <input type="text" name="name" placeholder="Full Name" required style={{ padding: '15px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', borderRadius: '4px' }} />
-              <input type="tel" name="phone" placeholder="Phone Number" required style={{ padding: '15px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', borderRadius: '4px' }} />
+              <input type="text" name="name" placeholder="Full Name *" required style={{ padding: '15px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', borderRadius: '4px' }} />
+              <input type="tel" name="phone" placeholder="Phone Number (with country code) *" required style={{ padding: '15px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', borderRadius: '4px' }} />
               <input type="email" name="email" placeholder="Email Address (Optional)" style={{ padding: '15px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', borderRadius: '4px' }} />
               
               <button type="submit" disabled={enquiryStatus === 'sending'} style={{ 

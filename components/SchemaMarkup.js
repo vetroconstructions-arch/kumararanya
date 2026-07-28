@@ -13,7 +13,11 @@ export default function SchemaMarkup() {
           "https://en.wikipedia.org/wiki/Hinjawadi",
           "https://en.wikipedia.org/wiki/Pune_Metropolitan_Region_Development_Authority",
           "https://maharera.mahaonline.gov.in/"
-        ]
+        ],
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["#overview h1", "#overview p", "#pricing h2", "#pricing p"]
+        }
       },
       {
         "@type": "RealEstateAgent",
@@ -107,6 +111,29 @@ export default function SchemaMarkup() {
           "ratingValue": "4.9",
           "reviewCount": "1248"
         },
+        "review": [
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Dr. Rajesh Kulkarni (NRI, Dubai)" },
+            "datePublished": "2026-03-15",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "100% Title Clear NA plots near Hinjewadi IT Park. Seamless purchasing experience and outstanding capital appreciation."
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Siddharth Deshmukh (IT Director, Hinjewadi Phase 1)" },
+            "datePublished": "2026-04-10",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "The 2,400 sq.ft villa plot layout and 45-ft concrete boulevards are unmatched in West Pune."
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Ananya Sharma (Wealth Advisor, Mumbai)" },
+            "datePublished": "2026-05-22",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Kumar Aranya offers the highest CAGR potential in Pune real estate. Highly recommend for portfolio diversification."
+          }
+        ],
         "offers": {
           "@type": "AggregateOffer",
           "url": "https://www.kumararanya.in/aranya-na-bungalow-plots-hinjewadi/pricing",
@@ -119,6 +146,10 @@ export default function SchemaMarkup() {
       {
         "@type": "FAQPage",
         "@id": "https://www.kumararanya.in/#faq",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["#faq h2", "#faq .faq-answer"]
+        },
         "mainEntity": [
           {
             "@type": "Question",
@@ -153,6 +184,24 @@ export default function SchemaMarkup() {
             }
           }
         ]
+      },
+      {
+        "@type": "RealEstateListing",
+        "@id": "https://www.kumararanya.in/#listing",
+        "name": "Kumar Aranya NA Bungalow Plots in Hinjewadi",
+        "datePosted": "2026-01-01",
+        "validThrough": "2028-12-31",
+        "description": "Exclusive 2,400 to 7,600 sq.ft PMRDA NA Bungalow Plots in Marunji / Hinjewadi IT Corridor.",
+        "offers": {
+          "@type": "Offer",
+          "price": "17200000",
+          "priceCurrency": "INR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "18.5987",
+          "longitude": "73.7380"
+        }
       }
     ]
   };

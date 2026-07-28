@@ -7,9 +7,15 @@ export const metadata = {
   description: 'Secure premium PMRDA sanctioned Aranya NA Bungalow Plots in Hinjewadi. The #1 real estate investment in Pune for capital appreciation and luxury living.',
   manifest: '/manifest.json',
   icons: {
-    icon: '/favicon.png',
-    apple: '/favicon.png',
-    shortcut: '/favicon.png',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.svg',
   },
   openGraph: {
     title: 'Aranya NA Bungalow Plots in Hinjewadi',
